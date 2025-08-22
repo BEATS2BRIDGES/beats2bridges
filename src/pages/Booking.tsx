@@ -15,7 +15,7 @@ const localizer = momentLocalizer(moment);
 
 const Booking = () => {
   const { toast } = useToast();
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedSlot, setSelectedSlot] = useState<{ start: Date; end: Date } | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,8 +26,8 @@ const Booking = () => {
     description: ""
   });
 
-  // Sample events for the calendar
-  const events = [
+  // Sample existing events
+  const existingEvents = [
     {
       id: 1,
       title: "Community Workshop",
@@ -37,19 +37,74 @@ const Booking = () => {
     },
     {
       id: 2,
-      title: "DJ Performance",
+      title: "DJ Performance", 
       start: new Date(2024, 2, 22, 19, 0),
       end: new Date(2024, 2, 22, 22, 0),
       resource: "booked"
-    },
-    {
-      id: 3,
-      title: "Youth Music Program",
-      start: new Date(2024, 2, 28, 15, 0),
-      end: new Date(2024, 2, 28, 17, 0),
-      resource: "booked"
     }
   ];
+
+  // Add selected slot as a temporary event if one exists
+  const events = selectedSlot 
+    ? [...existingEvents, {
+        id: 'selected',
+        title: 'Selected Time Slot',
+        start: selectedSlot.start,
+        end: selectedSlot.end,
+        resource: 'selected'
+      }]
+    : existingEvents;
+
+  // Check if a time slot is available
+  const isTimeAvailable = (date: Date): boolean => {
+    const hour = date.getHours();
+    const dayOfWeek = date.getDay();
+    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+    
+    if (isWeekend) {
+      return hour >= 8 && hour < 20; // 8am-8pm weekends
+    } else {
+      return hour >= 16 && hour < 20; // 4pm-8pm weekdays
+    }
+  };
+
+  // Generate unavailable time slots for visual blocking
+  const generateUnavailableSlots = () => {
+    const slots = [];
+    const today = new Date();
+    
+    // Generate for next 30 days
+    for (let d = 0; d < 30; d++) {
+      const currentDate = new Date(today);
+      currentDate.setDate(today.getDate() + d);
+      
+      const dayOfWeek = currentDate.getDay();
+      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+      
+      // Generate hourly slots for the day
+      for (let h = 0; h < 24; h++) {
+        const slotStart = new Date(currentDate);
+        slotStart.setHours(h, 0, 0, 0);
+        
+        const slotEnd = new Date(slotStart);
+        slotEnd.setHours(h + 1, 0, 0, 0);
+        
+        if (!isTimeAvailable(slotStart)) {
+          slots.push({
+            id: `unavailable-${d}-${h}`,
+            title: '',
+            start: slotStart,
+            end: slotEnd,
+            resource: 'unavailable'
+          });
+        }
+      }
+    }
+    return slots;
+  };
+
+  const unavailableSlots = generateUnavailableSlots();
+  const allEvents = [...events, ...unavailableSlots];
 
   const eventTypes = [
     { value: "workshop", label: "Music Workshop" },
@@ -68,25 +123,62 @@ const Booking = () => {
   };
 
   const handleSelectEvent = (event: any) => {
-    toast({
-      title: "Event Details",
-      description: `${event.title} - ${moment(event.start).format('MMMM Do, YYYY [at] h:mm A')}`,
-    });
+    if (event.resource === 'unavailable') return;
+    
+    if (event.resource === 'booked') {
+      toast({
+        title: "Time Slot Unavailable",
+        description: `This time slot is already booked: ${moment(event.start).format('MMMM Do, YYYY [at] h:mm A')}`,
+        variant: "destructive"
+      });
+    } else {
+      toast({
+        title: "Event Details",
+        description: `${event.title} - ${moment(event.start).format('MMMM Do, YYYY [at] h:mm A')}`,
+      });
+    }
   };
 
   const handleSelectSlot = ({ start }: { start: Date }) => {
-    setSelectedDate(start);
+    if (!isTimeAvailable(start)) {
+      toast({
+        title: "Time Unavailable",
+        description: "Available hours: Weekdays 4PM-8PM, Weekends 8AM-8PM",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Create 1-hour slot
+    const end = new Date(start);
+    end.setHours(start.getHours() + 1);
+    
+    // Check if slot conflicts with existing bookings
+    const hasConflict = existingEvents.some(event => {
+      return (start < event.end && end > event.start);
+    });
+    
+    if (hasConflict) {
+      toast({
+        title: "Time Slot Conflict",
+        description: "This time overlaps with an existing booking.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setSelectedSlot({ start, end });
     toast({
       title: "Time Slot Selected",
-      description: `Selected: ${moment(start).format('MMMM Do, YYYY [at] h:mm A')}`,
+      description: `Selected: ${moment(start).format('MMMM Do, YYYY [at] h:mm A')} - ${moment(end).format('h:mm A')}`,
     });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedDate) {
+    if (!selectedSlot) {
       toast({
-        title: "Please select a date",
+        title: "Please select a time slot",
         description: "Click on an available time slot in the calendar.",
         variant: "destructive"
       });
@@ -107,7 +199,39 @@ const Booking = () => {
       attendees: "",
       description: ""
     });
-    setSelectedDate(null);
+    setSelectedSlot(null);
+  };
+
+  const eventStyleGetter = (event: any) => {
+    let backgroundColor = 'hsl(var(--primary))';
+    let color = 'hsl(var(--primary-foreground))';
+    let opacity = '1';
+    let border = 'none';
+    let textDecoration = 'none';
+    
+    if (event.resource === 'unavailable') {
+      backgroundColor = '#ef4444';
+      color = 'white';
+      opacity = '0.6';
+      textDecoration = 'line-through';
+      border = '2px solid #dc2626';
+    } else if (event.resource === 'selected') {
+      backgroundColor = 'hsl(var(--primary))';
+      color = 'hsl(var(--primary-foreground))';
+      opacity = '0.9';
+      border = '2px solid hsl(var(--primary-glow))';
+    }
+    
+    return {
+      style: {
+        backgroundColor,
+        color,
+        opacity,
+        border,
+        borderRadius: '4px',
+        textDecoration
+      }
+    };
   };
 
   return (
@@ -138,34 +262,43 @@ const Booking = () => {
                 <div className="h-96 mb-4">
                   <Calendar
                     localizer={localizer}
-                    events={events}
+                    events={allEvents}
                     startAccessor="start"
                     endAccessor="end"
                     onSelectEvent={handleSelectEvent}
                     onSelectSlot={handleSelectSlot}
                     selectable
                     views={['month', 'week', 'day']}
-                    defaultView="month"
+                    defaultView="week"
                     step={60}
+                    timeslots={1}
+                    min={new Date(0, 0, 0, 8, 0, 0)}
+                    max={new Date(0, 0, 0, 21, 0, 0)}
                     showMultiDayTimes
                     className="bg-background rounded-lg"
-                    eventPropGetter={() => ({
-                      style: {
-                        backgroundColor: 'hsl(var(--primary))',
-                        color: 'hsl(var(--primary-foreground))',
-                        border: 'none',
-                        borderRadius: '4px'
-                      }
-                    })}
+                    eventPropGetter={eventStyleGetter}
                   />
                 </div>
-                {selectedDate && (
-                  <div className="bg-primary/10 p-4 rounded-lg">
+                {selectedSlot && (
+                  <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
                     <p className="font-semibold text-primary">
-                      Selected: {moment(selectedDate).format('MMMM Do, YYYY [at] h:mm A')}
+                      Selected: {moment(selectedSlot.start).format('MMMM Do, YYYY [at] h:mm A')} - {moment(selectedSlot.end).format('h:mm A')}
+                    </p>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Duration: 1 hour
                     </p>
                   </div>
                 )}
+                
+                <div className="mt-4 p-3 bg-muted/50 rounded-lg">
+                  <h4 className="font-semibold text-sm mb-2">Availability:</h4>
+                  <div className="text-xs text-muted-foreground space-y-1">
+                    <p>• Weekdays: 4:00 PM - 8:00 PM</p>
+                    <p>• Weekends: 8:00 AM - 8:00 PM</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-red-500/60 border border-red-600 rounded mr-1"></span>Unavailable times</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-primary border border-primary-glow rounded mr-1"></span>Your selection</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 

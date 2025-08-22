@@ -17,10 +17,10 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 254 20% 10%;
 
-    /* Deep Purple Primary - Music Vibe */
-    --primary: 254 73% 20%;
+    /* Pastel Green Primary - Music Vibe */
+    --primary: 142 69% 58%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 254 73% 35%;
+    --primary-glow: 142 69% 70%;
 
     /* Vibrant Blue Secondary */
     --secondary: 213 94% 68%;
@@ -30,19 +30,19 @@ All colors MUST be HSL.
     --accent: 25 95% 53%;
     --accent-foreground: 254 20% 10%;
 
-    --muted: 254 15% 96%;
-    --muted-foreground: 254 8% 45%;
+    --muted: 142 15% 96%;
+    --muted-foreground: 142 8% 45%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 254 15% 90%;
-    --input: 254 15% 90%;
-    --ring: 254 73% 35%;
+    --border: 142 15% 90%;
+    --input: 142 15% 90%;
+    --ring: 142 69% 58%;
 
     /* Music-themed gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-card: linear-gradient(180deg, hsl(var(--card)), hsl(254 15% 98%));
+    --gradient-card: linear-gradient(180deg, hsl(var(--card)), hsl(142 15% 98%));
     --gradient-accent: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
 
     /* Shadows with music vibe */

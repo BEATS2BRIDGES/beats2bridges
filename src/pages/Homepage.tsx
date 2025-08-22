@@ -40,7 +40,7 @@ const Homepage = () => {
                   Book With Us <ChevronRight className="ml-2" size={20} />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+              <Button variant="secondary" size="lg">
                 Learn More
               </Button>
             </div>

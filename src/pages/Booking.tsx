@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,12 +9,17 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Calendar as CalendarIcon, Clock, Users, Music, CheckCircle } from "lucide-react";
+import { supabase } from "@/lib/supabase";
+import Auth from "@/components/Auth";
+import UserProfile from "@/components/UserProfile";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
 
 const Booking = () => {
   const { toast } = useToast();
+  const [user, setUser] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
   const [selectedSlot, setSelectedSlot] = useState<{ start: Date; end: Date } | null>(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -24,6 +29,23 @@ const Booking = () => {
     notes: ""
   });
   const [fieldErrors, setFieldErrors] = useState<{[key: string]: boolean}>({});
+  const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+      setLoading(false);
+    });
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setLoading(false);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   // Sample existing events
   const existingEvents = [
@@ -188,7 +210,7 @@ const Booking = () => {
     setFieldErrors({}); // Clear any field errors when slot is selected
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedSlot) {
       toast({
@@ -199,19 +221,59 @@ const Booking = () => {
       return;
     }
 
-    toast({
-      title: "Booking Request Submitted!",
-      description: "We'll send you a confirmation text + email within 24hrs.",
-    });
-    
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      lessonType: "",
-      notes: ""
-    });
-    setSelectedSlot(null);
+    if (!user) {
+      toast({
+        title: "Authentication required",
+        description: "Please sign in to book a lesson.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      const bookingData = {
+        user_id: user.id,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        lesson_type: formData.lessonType,
+        notes: formData.notes,
+        booking_date: moment(selectedSlot.start).format('YYYY-MM-DD'),
+        booking_time: moment(selectedSlot.start).format('HH:mm:ss'),
+        status: 'pending'
+      };
+
+      const { error } = await supabase
+        .from('bookings')
+        .insert([bookingData]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Booking Request Submitted!",
+        description: "We'll send you a confirmation text + email within 24hrs.",
+      });
+      
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        lessonType: "",
+        notes: ""
+      });
+      setSelectedSlot(null);
+      setFieldErrors({});
+    } catch (error: any) {
+      toast({
+        title: "Booking Failed",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const eventStyleGetter = (event: any) => {
@@ -246,18 +308,43 @@ const Booking = () => {
     };
   };
 
+  // Pre-fill form with user data when user is available
+  useEffect(() => {
+    if (user && user.user_metadata) {
+      setFormData(prev => ({
+        ...prev,
+        name: user.user_metadata.full_name || prev.name,
+        email: user.email || prev.email
+      }));
+    }
+  }, [user]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Auth />;
+  }
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 py-12">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Book With Us</h1>
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold mb-4">Book Your Lesson</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to bring the power of music to your event? Use our scheduling tool to book workshops, 
-            performances, or educational programs tailored to your community's needs.
+            Welcome back! Select a time slot below to book your personalized music lesson.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto space-y-8">
+          {/* User Profile Section */}
+          <UserProfile user={user} onSignOut={() => setUser(null)} />
+
+          <div className="grid lg:grid-cols-2 gap-12">
           {/* Calendar Section */}
           <div className="space-y-6">
             <Card className="shadow-card">
@@ -444,9 +531,9 @@ const Booking = () => {
                   )}
                 </div>
 
-                <Button type="submit" className="w-full" size="lg" disabled={!selectedSlot}>
+                <Button type="submit" className="w-full" size="lg" disabled={!selectedSlot || submitting}>
                   <CheckCircle className="mr-2" size={18} />
-                  Submit Booking Request
+                  {submitting ? "Submitting..." : "Submit Booking Request"}
                 </Button>
 
                 <p className="text-xs text-muted-foreground text-center">
@@ -455,6 +542,7 @@ const Booking = () => {
               </form>
             </CardContent>
           </Card>
+          </div>
         </div>
       </div>
     </div>

@@ -299,36 +299,6 @@ const Booking = () => {
                     <p className="text-sm text-muted-foreground mt-1">
                       Duration: 1 hour
                     </p>
-                    <div className="flex items-center gap-4 mt-3 text-sm">
-                      <div className="flex items-center gap-1">
-                        <span>Date:</span>
-                        <button className="hover:text-primary">
-                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>
-                          </svg>
-                        </button>
-                        <span className="font-mono">{moment(selectedSlot.start).format('MM/DD')}</span>
-                        <button className="hover:text-primary">
-                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-                          </svg>
-                        </button>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span>Time:</span>
-                        <button className="hover:text-primary">
-                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>
-                          </svg>
-                        </button>
-                        <span className="font-mono">{moment(selectedSlot.start).format('h:mm A')}</span>
-                        <button className="hover:text-primary">
-                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
                   </div>
                 )}
                 

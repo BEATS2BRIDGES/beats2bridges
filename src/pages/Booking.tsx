@@ -20,11 +20,10 @@ const Booking = () => {
     name: "",
     email: "",
     phone: "",
-    eventType: "",
-    duration: "",
-    attendees: "",
-    description: ""
+    lessonType: "",
+    notes: ""
   });
+  const [fieldErrors, setFieldErrors] = useState<{[key: string]: boolean}>({});
 
   // Sample existing events
   const existingEvents = [
@@ -106,13 +105,14 @@ const Booking = () => {
   const unavailableSlots = generateUnavailableSlots();
   const allEvents = [...events, ...unavailableSlots];
 
-  const eventTypes = [
-    { value: "workshop", label: "Music Workshop" },
-    { value: "performance", label: "Live Performance" },
-    { value: "education", label: "Educational Program" },
-    { value: "community", label: "Community Event" },
-    { value: "private", label: "Private Lesson" },
-    { value: "other", label: "Other" }
+  const lessonTypes = [
+    { value: "guitar", label: "Guitar" },
+    { value: "piano", label: "Piano" },
+    { value: "singing", label: "Singing" },
+    { value: "saxophone", label: "Saxophone" },
+    { value: "trumpet", label: "Trumpet" },
+    { value: "violin", label: "Violin" },
+    { value: "mridangam", label: "Mridangam" }
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -168,10 +168,7 @@ const Booking = () => {
     }
 
     setSelectedSlot({ start, end });
-    toast({
-      title: "Time Slot Selected",
-      description: `Selected: ${moment(start).format('MMMM Do, YYYY [at] h:mm A')} - ${moment(end).format('h:mm A')}`,
-    });
+    setFieldErrors({}); // Clear any field errors when slot is selected
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -187,17 +184,15 @@ const Booking = () => {
 
     toast({
       title: "Booking Request Submitted!",
-      description: "We'll confirm your booking within 24 hours.",
+      description: "We'll send you a confirmation text + email within 24hrs.",
     });
     
     setFormData({
       name: "",
       email: "",
       phone: "",
-      eventType: "",
-      duration: "",
-      attendees: "",
-      description: ""
+      lessonType: "",
+      notes: ""
     });
     setSelectedSlot(null);
   };
@@ -272,8 +267,8 @@ const Booking = () => {
                     defaultView="week"
                     step={60}
                     timeslots={1}
-                    min={new Date(0, 0, 0, 8, 0, 0)}
-                    max={new Date(0, 0, 0, 21, 0, 0)}
+                    min={new Date(0, 0, 0, 10, 0, 0)}
+                    max={new Date(0, 0, 0, 22, 0, 0)}
                     showMultiDayTimes
                     className="bg-background rounded-lg"
                     eventPropGetter={eventStyleGetter}
@@ -287,6 +282,36 @@ const Booking = () => {
                     <p className="text-sm text-muted-foreground mt-1">
                       Duration: 1 hour
                     </p>
+                    <div className="flex items-center gap-4 mt-3 text-sm">
+                      <div className="flex items-center gap-1">
+                        <span>Date:</span>
+                        <button className="hover:text-primary">
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>
+                          </svg>
+                        </button>
+                        <span className="font-mono">{moment(selectedSlot.start).format('MM/DD')}</span>
+                        <button className="hover:text-primary">
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                          </svg>
+                        </button>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <span>Time:</span>
+                        <button className="hover:text-primary">
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>
+                          </svg>
+                        </button>
+                        <span className="font-mono">{moment(selectedSlot.start).format('h:mm A')}</span>
+                        <button className="hover:text-primary">
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 )}
                 
@@ -324,119 +349,121 @@ const Booking = () => {
           {/* Booking Form */}
           <Card className="shadow-accent">
             <CardHeader>
-              <CardTitle className="text-2xl">Event Details</CardTitle>
+              <CardTitle className="text-2xl">Lesson Details</CardTitle>
               <CardDescription>
-                Tell us about your event and we'll create a customized experience
+                {selectedSlot ? "Fill out your lesson details below" : "Please select a time slot first to enable the booking form"}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Contact Name *</Label>
+                    <Label htmlFor="name" className={!selectedSlot ? "text-muted-foreground" : ""}>Name *</Label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
+                      disabled={!selectedSlot}
                       required
                       placeholder="Your full name"
+                      className={!selectedSlot ? "bg-muted/50 cursor-not-allowed" : ""}
+                      onClick={() => !selectedSlot && setFieldErrors({...fieldErrors, name: true})}
                     />
+                    {fieldErrors.name && !selectedSlot && (
+                      <p className="text-xs text-red-500">Please select a time slot first</p>
+                    )}
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email *</Label>
+                    <Label htmlFor="email" className={!selectedSlot ? "text-muted-foreground" : ""}>Email *</Label>
                     <Input
                       id="email"
                       name="email"
                       type="email"
                       value={formData.email}
                       onChange={handleInputChange}
+                      disabled={!selectedSlot}
                       required
                       placeholder="your.email@example.com"
+                      className={!selectedSlot ? "bg-muted/50 cursor-not-allowed" : ""}
+                      onClick={() => !selectedSlot && setFieldErrors({...fieldErrors, email: true})}
                     />
+                    {fieldErrors.email && !selectedSlot && (
+                      <p className="text-xs text-red-500">Please select a time slot first</p>
+                    )}
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
+                    <Label htmlFor="phone" className={!selectedSlot ? "text-muted-foreground" : ""}>Phone Number</Label>
                     <Input
                       id="phone"
                       name="phone"
                       type="tel"
                       value={formData.phone}
                       onChange={handleInputChange}
+                      disabled={!selectedSlot}
                       placeholder="(555) 123-4567"
+                      className={!selectedSlot ? "bg-muted/50 cursor-not-allowed" : ""}
+                      onClick={() => !selectedSlot && setFieldErrors({...fieldErrors, phone: true})}
                     />
+                    {fieldErrors.phone && !selectedSlot && (
+                      <p className="text-xs text-red-500">Please select a time slot first</p>
+                    )}
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="eventType">Event Type *</Label>
-                    <Select value={formData.eventType} onValueChange={(value) => setFormData({...formData, eventType: value})}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select event type" />
+                    <Label htmlFor="lessonType" className={!selectedSlot ? "text-muted-foreground" : ""}>Lesson Type *</Label>
+                    <Select 
+                      value={formData.lessonType} 
+                      onValueChange={(value) => setFormData({...formData, lessonType: value})}
+                      disabled={!selectedSlot}
+                    >
+                      <SelectTrigger 
+                        className={!selectedSlot ? "bg-muted/50 cursor-not-allowed" : ""}
+                        onClick={() => !selectedSlot && setFieldErrors({...fieldErrors, lessonType: true})}
+                      >
+                        <SelectValue placeholder="Select lesson type" />
                       </SelectTrigger>
                       <SelectContent>
-                        {eventTypes.map((type) => (
+                        {lessonTypes.map((type) => (
                           <SelectItem key={type.value} value={type.value}>
                             {type.label}
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
-                  </div>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="duration">Duration</Label>
-                    <Select value={formData.duration} onValueChange={(value) => setFormData({...formData, duration: value})}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select duration" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="1">1 hour</SelectItem>
-                        <SelectItem value="2">2 hours</SelectItem>
-                        <SelectItem value="3">3 hours</SelectItem>
-                        <SelectItem value="4">Half day (4 hours)</SelectItem>
-                        <SelectItem value="8">Full day (8 hours)</SelectItem>
-                        <SelectItem value="custom">Custom</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="attendees">Expected Attendees</Label>
-                    <Input
-                      id="attendees"
-                      name="attendees"
-                      type="number"
-                      value={formData.attendees}
-                      onChange={handleInputChange}
-                      placeholder="Number of people"
-                    />
+                    {fieldErrors.lessonType && !selectedSlot && (
+                      <p className="text-xs text-red-500">Please select a time slot first</p>
+                    )}
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="description">Event Description *</Label>
+                  <Label htmlFor="notes" className={!selectedSlot ? "text-muted-foreground" : ""}>Any Notes?</Label>
                   <Textarea
-                    id="description"
-                    name="description"
-                    value={formData.description}
+                    id="notes"
+                    name="notes"
+                    value={formData.notes}
                     onChange={handleInputChange}
-                    required
+                    disabled={!selectedSlot}
                     rows={4}
-                    placeholder="Tell us about your event, goals, audience, and any special requirements..."
-                    className="resize-none"
+                    placeholder="Tell us anything special about your lesson needs..."
+                    className={`resize-none ${!selectedSlot ? "bg-muted/50 cursor-not-allowed" : ""}`}
+                    onClick={() => !selectedSlot && setFieldErrors({...fieldErrors, notes: true})}
                   />
+                  {fieldErrors.notes && !selectedSlot && (
+                    <p className="text-xs text-red-500">Please select a time slot first</p>
+                  )}
                 </div>
 
-                <Button type="submit" className="w-full" size="lg">
+                <Button type="submit" className="w-full" size="lg" disabled={!selectedSlot}>
                   <CheckCircle className="mr-2" size={18} />
                   Submit Booking Request
                 </Button>
 
                 <p className="text-xs text-muted-foreground text-center">
-                  * We'll contact you within 24 hours to confirm availability and discuss details
+                  * We'll send you a confirmation text + email within 24hrs
                 </p>
               </form>
             </CardContent>

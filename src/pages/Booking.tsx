@@ -70,6 +70,7 @@ const Booking = () => {
   // Generate unavailable time slots for visual blocking
   const generateUnavailableSlots = () => {
     const slots = [];
+    const now = new Date();
     const today = new Date();
     
     // Generate for next 30 days
@@ -80,18 +81,22 @@ const Booking = () => {
       const dayOfWeek = currentDate.getDay();
       const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
       
-      // Generate hourly slots for the day
-      for (let h = 0; h < 24; h++) {
+      // Generate hourly slots for the day (10am to 10pm display range)
+      for (let h = 10; h < 22; h++) {
         const slotStart = new Date(currentDate);
         slotStart.setHours(h, 0, 0, 0);
         
         const slotEnd = new Date(slotStart);
         slotEnd.setHours(h + 1, 0, 0, 0);
         
-        if (!isTimeAvailable(slotStart)) {
+        // Mark as unavailable if: 1) past time, 2) outside business hours
+        const isPastTime = slotStart < now;
+        const isOutsideBusinessHours = !isTimeAvailable(slotStart);
+        
+        if (isPastTime || isOutsideBusinessHours) {
           slots.push({
             id: `unavailable-${d}-${h}`,
-            title: '',
+            title: isPastTime ? 'Past' : 'Unavailable',
             start: slotStart,
             end: slotEnd,
             resource: 'unavailable'
@@ -140,6 +145,18 @@ const Booking = () => {
   };
 
   const handleSelectSlot = ({ start }: { start: Date }) => {
+    const now = new Date();
+    
+    // Check if the selected time is in the past
+    if (start < now) {
+      toast({
+        title: "Time Unavailable",
+        description: "Cannot book appointments in the past.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     if (!isTimeAvailable(start)) {
       toast({
         title: "Time Unavailable",

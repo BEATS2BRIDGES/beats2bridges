@@ -117,7 +117,7 @@ export default function Auth() {
       } else {
         toast({
           title: "Account Created!",
-          description: "Please check your email to verify your account."
+          description: "A verification link has been sent to your email address. Please check your email and click the link to activate your account."
         })
       }
     } catch (error) {

@@ -175,10 +175,11 @@ const Booking = () => {
   const lessonTypes = [
     { value: "guitar", label: "Guitar" },
     { value: "piano", label: "Piano" },
-    { value: "singing", label: "Singing" },
+    { value: "vocals", label: "Vocals" },
     { value: "saxophone", label: "Saxophone" },
     { value: "trumpet", label: "Trumpet" },
     { value: "violin", label: "Violin" },
+    { value: "percussion", label: "Percussion" },
     { value: "mridangam", label: "Mridangam" }
   ];
 

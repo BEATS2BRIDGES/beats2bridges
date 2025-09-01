@@ -2,11 +2,17 @@ import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Separator } from '@/components/ui/separator'
 import { useToast } from '@/hooks/use-toast'
 import { Music } from 'lucide-react'
 
 export default function Auth() {
   const [loading, setLoading] = useState(false)
+  const [emailLoading, setEmailLoading] = useState(false)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const { toast } = useToast()
 
   const handleGoogleSignIn = async () => {
@@ -37,6 +43,48 @@ export default function Auth() {
     }
   }
 
+  const handleEmailSignIn = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!email || !password) {
+      toast({
+        title: "Missing Information",
+        description: "Please enter both email and password.",
+        variant: "destructive"
+      })
+      return
+    }
+
+    try {
+      setEmailLoading(true)
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      })
+
+      if (error) {
+        toast({
+          title: "Sign In Error",
+          description: error.message,
+          variant: "destructive"
+        })
+      } else {
+        toast({
+          title: "Welcome back!",
+          description: "You have successfully signed in."
+        })
+      }
+    } catch (error) {
+      toast({
+        title: "Sign In Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive"
+      })
+    } finally {
+      setEmailLoading(false)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 flex items-center justify-center p-4">
       <Card className="w-full max-w-md shadow-accent">
@@ -51,7 +99,7 @@ export default function Auth() {
             Sign in to book your music lessons and manage your appointments
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-4">
           <Button 
             onClick={handleGoogleSignIn}
             disabled={loading}
@@ -88,7 +136,60 @@ export default function Auth() {
             )}
           </Button>
           
-          <p className="text-xs text-muted-foreground text-center mt-4">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <Separator className="w-full" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+            </div>
+          </div>
+          
+          <form onSubmit={handleEmailSignIn} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={emailLoading}
+                required
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                disabled={emailLoading}
+                required
+              />
+            </div>
+            
+            <Button 
+              type="submit"
+              disabled={emailLoading}
+              className="w-full"
+              size="lg"
+            >
+              {emailLoading ? (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  Signing in...
+                </div>
+              ) : (
+                "Sign in with Email"
+              )}
+            </Button>
+          </form>
+          
+          <p className="text-xs text-muted-foreground text-center">
             By signing in, you agree to our terms of service and privacy policy
           </p>
         </CardContent>

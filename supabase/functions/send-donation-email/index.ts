@@ -56,8 +56,11 @@ serve(async (req) => {
       html: emailContent,
     });
 
+    console.log("Email response:", emailResponse);
+
     if (emailResponse.error) {
-      throw new Error(`Failed to send email: ${emailResponse.error.message}`);
+      console.error("Resend error:", emailResponse.error);
+      throw new Error(`Failed to send email: ${JSON.stringify(emailResponse.error)}`);
     }
 
     return new Response(JSON.stringify({ success: true }), {

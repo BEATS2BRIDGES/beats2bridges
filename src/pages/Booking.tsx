@@ -103,8 +103,8 @@ const Booking = () => {
       const dayOfWeek = currentDate.getDay();
       const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
       
-      // Generate hourly slots for the day (10am to 10pm display range)
-      for (let h = 10; h < 22; h++) {
+      // Generate hourly slots for the day (6am to 10pm display range)
+      for (let h = 6; h < 22; h++) {
         const slotStart = new Date(currentDate);
         slotStart.setHours(h, 0, 0, 0);
         
@@ -286,7 +286,7 @@ const Booking = () => {
     if (event.resource === 'unavailable') {
       backgroundColor = '#ef4444';
       color = 'white';
-      opacity = '0.6';
+      opacity = '0.8';
       textDecoration = 'line-through';
       border = '2px solid #dc2626';
     } else if (event.resource === 'selected') {
@@ -296,16 +296,31 @@ const Booking = () => {
       border = '2px solid hsl(var(--primary-glow))';
     }
     
-    return {
-      style: {
-        backgroundColor,
-        color,
-        opacity,
-        border,
-        borderRadius: '4px',
-        textDecoration
-      }
+    const style: any = {
+      backgroundColor,
+      color,
+      opacity,
+      border,
+      borderRadius: '4px',
+      textDecoration
     };
+
+    // Add diagonal stripes for unavailable slots
+    if (event.resource === 'unavailable') {
+      style.backgroundImage = `
+        linear-gradient(45deg, 
+          transparent 25%, 
+          rgba(255, 255, 255, 0.3) 25%, 
+          rgba(255, 255, 255, 0.3) 50%, 
+          transparent 50%, 
+          transparent 75%, 
+          rgba(255, 255, 255, 0.3) 75%
+        )
+      `;
+      style.backgroundSize = '12px 12px';
+    }
+
+    return { style };
   };
 
   // Pre-fill form with user data when user is available
@@ -371,7 +386,7 @@ const Booking = () => {
                     defaultView="week"
                     step={60}
                     timeslots={1}
-                    min={new Date(0, 0, 0, 10, 0, 0)}
+                    min={new Date(0, 0, 0, 6, 0, 0)}
                     max={new Date(0, 0, 0, 22, 0, 0)}
                     showMultiDayTimes
                     className="bg-background rounded-lg"

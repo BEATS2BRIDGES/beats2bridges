@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { Resend } from "npm:resend@2.0.0";
 
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -48,23 +49,15 @@ serve(async (req) => {
       <p>Please contact the donor to arrange pickup/delivery of the instrument.</p>
     `;
 
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: "Beats2Bridges <noreply@beats2bridges.org>",
-        to: ["beats2bridges@gmail.com"],
-        subject: `New Instrument Donation: ${donorInfo.instrumentType}`,
-        html: emailContent,
-      }),
+    const emailResponse = await resend.emails.send({
+      from: 'Beats2Bridges <onboarding@resend.dev>',
+      to: ['anayt1107@gmail.com'],
+      subject: `New Instrument Donation: ${donorInfo.instrumentType}`,
+      html: emailContent,
     });
 
-    if (!res.ok) {
-      const error = await res.text();
-      throw new Error(`Failed to send email: ${error}`);
+    if (emailResponse.error) {
+      throw new Error(`Failed to send email: ${emailResponse.error.message}`);
     }
 
     return new Response(JSON.stringify({ success: true }), {

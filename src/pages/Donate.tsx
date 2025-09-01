@@ -12,6 +12,7 @@ import { supabase } from "@/lib/supabase";
 const Donate = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,6 +25,13 @@ const Donate = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedImage(file);
+    }
   };
 
   const handleInstrumentDonation = async (e: React.FormEvent) => {
@@ -54,6 +62,7 @@ const Donate = () => {
         condition: "",
         description: "",
       });
+      setSelectedImage(null);
     } catch (error) {
       console.error('Error submitting donation:', error);
       toast({
@@ -69,6 +78,13 @@ const Donate = () => {
   const handlePayPalDonation = () => {
     // PayPal integration would go here
     window.open('https://www.paypal.com/donate/?business=beats2bridges@gmail.com', '_blank');
+  };
+
+  const handleZelleDonation = () => {
+    toast({
+      title: "Zelle Donation",
+      description: "Please send your donation to: beats2bridges@gmail.com via Zelle. Thank you for your support!",
+    });
   };
 
   return (
@@ -116,9 +132,14 @@ const Donate = () => {
                     <p className="text-muted-foreground">
                       Every dollar counts towards creating opportunities for young musicians
                     </p>
-                    <Button onClick={handlePayPalDonation} size="lg" className="w-full sm:w-auto">
-                      Donate via PayPal
-                    </Button>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Button onClick={handlePayPalDonation} size="lg" className="w-full sm:w-auto">
+                        Donate via PayPal
+                      </Button>
+                      <Button onClick={handleZelleDonation} variant="outline" size="lg" className="w-full sm:w-auto">
+                        Donate via Zelle
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -205,6 +226,23 @@ const Donate = () => {
                         onChange={handleInputChange}
                         rows={4}
                       />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="image">Upload Image (Optional)</Label>
+                      <Input
+                        id="image"
+                        name="image"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        className="file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-primary-foreground hover:file:bg-primary/90"
+                      />
+                      {selectedImage && (
+                        <p className="text-sm text-muted-foreground">
+                          Selected: {selectedImage.name}
+                        </p>
+                      )}
                     </div>
 
                     <Button type="submit" disabled={isSubmitting} className="w-full">

@@ -51,16 +51,13 @@ serve(async (req) => {
 
     const emailResponse = await resend.emails.send({
       from: 'Beats2Bridges <onboarding@resend.dev>',
-      to: ['beats2bridges@gmail.com'],
+      to: ['anayt1107@gmail.com'],
       subject: `New Instrument Donation: ${donorInfo.instrumentType}`,
       html: emailContent,
     });
 
-    console.log("Email response:", emailResponse);
-
     if (emailResponse.error) {
-      console.error("Resend error:", emailResponse.error);
-      throw new Error(`Failed to send email: ${JSON.stringify(emailResponse.error)}`);
+      throw new Error(`Failed to send email: ${emailResponse.error.message}`);
     }
 
     return new Response(JSON.stringify({ success: true }), {

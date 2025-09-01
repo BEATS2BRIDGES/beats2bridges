@@ -413,7 +413,7 @@ const Booking = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="h-96 mb-4">
+                <div className="h-[500px] mb-4">
                   <Calendar
                     localizer={localizer}
                     events={allEvents}
@@ -455,24 +455,6 @@ const Booking = () => {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Service Options */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              <Card className="shadow-card">
-                <CardContent className="p-4 text-center">
-                  <Music className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <h3 className="font-semibold">Live Performances</h3>
-                  <p className="text-sm text-muted-foreground">Professional DJ and live music</p>
-                </CardContent>
-              </Card>
-              <Card className="shadow-card">
-                <CardContent className="p-4 text-center">
-                  <Users className="w-8 h-8 text-secondary mx-auto mb-2" />
-                  <h3 className="font-semibold">Workshops</h3>
-                  <p className="text-sm text-muted-foreground">Interactive music education</p>
-                </CardContent>
-              </Card>
-            </div>
           </div>
 
           {/* Booking Form */}

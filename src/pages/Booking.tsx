@@ -103,27 +103,67 @@ const Booking = () => {
       const dayOfWeek = currentDate.getDay();
       const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
       
-      // Generate hourly slots for the day (6am to 10pm display range)
-      for (let h = 6; h < 22; h++) {
+      // Find continuous blocks of unavailable time
+      let blockStart = null;
+      let blockType = null;
+      
+      for (let h = 6; h <= 22; h++) {
         const slotStart = new Date(currentDate);
         slotStart.setHours(h, 0, 0, 0);
-        
-        const slotEnd = new Date(slotStart);
-        slotEnd.setHours(h + 1, 0, 0, 0);
         
         // Mark as unavailable if: 1) past time, 2) outside business hours
         const isPastTime = slotStart < now;
         const isOutsideBusinessHours = !isTimeAvailable(slotStart);
+        const isUnavailable = isPastTime || isOutsideBusinessHours;
+        const currentType = isPastTime ? 'Past' : 'Unavailable';
         
-        if (isPastTime || isOutsideBusinessHours) {
-          slots.push({
-            id: `unavailable-${d}-${h}`,
-            title: isPastTime ? 'Past' : 'Unavailable',
-            start: slotStart,
-            end: slotEnd,
-            resource: 'unavailable'
-          });
+        if (isUnavailable) {
+          if (!blockStart || blockType !== currentType) {
+            // Start new block or type changed
+            if (blockStart) {
+              // Finish previous block
+              const blockEnd = new Date(currentDate);
+              blockEnd.setHours(h, 0, 0, 0);
+              slots.push({
+                id: `unavailable-${d}-${blockStart.getHours()}-${h-1}`,
+                title: '',
+                start: blockStart,
+                end: blockEnd,
+                resource: 'unavailable'
+              });
+            }
+            blockStart = new Date(slotStart);
+            blockType = currentType;
+          }
+        } else {
+          // Available time - close any open block
+          if (blockStart) {
+            const blockEnd = new Date(currentDate);
+            blockEnd.setHours(h, 0, 0, 0);
+            slots.push({
+              id: `unavailable-${d}-${blockStart.getHours()}-${h-1}`,
+              title: '',
+              start: blockStart,
+              end: blockEnd,
+              resource: 'unavailable'
+            });
+            blockStart = null;
+            blockType = null;
+          }
         }
+      }
+      
+      // Close any remaining block at end of day
+      if (blockStart) {
+        const blockEnd = new Date(currentDate);
+        blockEnd.setHours(22, 0, 0, 0);
+        slots.push({
+          id: `unavailable-${d}-${blockStart.getHours()}-22`,
+          title: '',
+          start: blockStart,
+          end: blockEnd,
+          resource: 'unavailable'
+        });
       }
     }
     return slots;

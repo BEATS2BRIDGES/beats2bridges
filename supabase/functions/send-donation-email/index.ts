@@ -51,7 +51,7 @@ serve(async (req) => {
 
     const emailResponse = await resend.emails.send({
       from: 'Beats2Bridges <onboarding@resend.dev>',
-      to: ['anayt1107@gmail.com'],
+      to: ['beats2bridges@gmail.com'],
       subject: `New Instrument Donation: ${donorInfo.instrumentType}`,
       html: emailContent,
     });

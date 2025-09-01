@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Mail, Users, UserCheck, Calendar } from "lucide-react";
+import { Home, Mail, Users, UserCheck, Calendar, Heart } from "lucide-react";
 
 const Navigation = () => {
   const location = useLocation();
@@ -11,6 +11,8 @@ const Navigation = () => {
     { path: "/officers", label: "Officers", icon: UserCheck },
     { path: "/booking", label: "Book", icon: Calendar },
   ];
+
+  const donateItem = { path: "/donate", label: "Donate", icon: Heart };
 
   return (
     <nav className="bg-gradient-hero shadow-glow sticky top-0 z-50">
@@ -40,6 +42,18 @@ const Navigation = () => {
                 </Link>
               );
             })}
+            {/* Donate tab - all the way to the right */}
+            <Link
+              to={donateItem.path}
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-smooth ml-4 ${
+                location.pathname === donateItem.path
+                  ? "bg-primary-foreground/20 text-primary-foreground font-semibold"
+                  : "text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              }`}
+            >
+              <Heart size={18} />
+              <span className="hidden sm:inline">{donateItem.label}</span>
+            </Link>
           </div>
         </div>
       </div>

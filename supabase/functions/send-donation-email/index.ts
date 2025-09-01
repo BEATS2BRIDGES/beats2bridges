@@ -49,16 +49,12 @@ serve(async (req) => {
       <p>Please contact the donor to arrange pickup/delivery of the instrument.</p>
     `;
 
-    const emailResponse = await resend.emails.send({
+    await resend.emails.send({
       from: 'Beats2Bridges <onboarding@resend.dev>',
       to: ['anayt1107@gmail.com'],
       subject: `New Instrument Donation: ${donorInfo.instrumentType}`,
       html: emailContent,
     });
-
-    if (emailResponse.error) {
-      throw new Error(`Failed to send email: ${emailResponse.error.message}`);
-    }
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

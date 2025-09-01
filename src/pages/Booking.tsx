@@ -85,7 +85,7 @@ const Booking = () => {
     if (isWeekend) {
       return hour >= 8 && hour < 20; // 8am-8pm weekends
     } else {
-      return hour >= 16 && hour < 20; // 4pm-8pm weekdays
+      return hour >= 18 && hour < 20; // 6pm-8pm weekdays
     }
   };
 
@@ -222,7 +222,7 @@ const Booking = () => {
     if (!isTimeAvailable(start)) {
       toast({
         title: "Time Unavailable",
-        description: "Available hours: Weekdays 4PM-8PM, Weekends 8AM-8PM",
+        description: "Available hours: Weekdays 6PM-8PM, Weekends 8AM-8PM",
         variant: "destructive"
       });
       return;
@@ -447,7 +447,7 @@ const Booking = () => {
                 <div className="mt-4 p-3 bg-muted/50 rounded-lg">
                   <h4 className="font-semibold text-sm mb-2">Availability:</h4>
                   <div className="text-xs text-muted-foreground space-y-1">
-                    <p>• Weekdays: 4:00 PM - 8:00 PM</p>
+                    <p>• Weekdays: 6:00 PM - 8:00 PM</p>
                     <p>• Weekends: 8:00 AM - 8:00 PM</p>
                     <p>• <span className="inline-block w-3 h-3 bg-red-500/60 border border-red-600 rounded mr-1"></span>Unavailable times</p>
                     <p>• <span className="inline-block w-3 h-3 bg-primary border border-primary-glow rounded mr-1"></span>Your selection</p>

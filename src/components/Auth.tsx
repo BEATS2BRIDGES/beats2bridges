@@ -13,6 +13,7 @@ export default function Auth() {
   const [emailLoading, setEmailLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [isSignUp, setIsSignUp] = useState(false)
   const { toast } = useToast()
 
   const handleGoogleSignIn = async () => {
@@ -85,6 +86,51 @@ export default function Auth() {
     }
   }
 
+  const handleEmailSignUp = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!email || !password) {
+      toast({
+        title: "Missing Information",
+        description: "Please enter both email and password.",
+        variant: "destructive"
+      })
+      return
+    }
+
+    try {
+      setEmailLoading(true)
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/booking`
+        }
+      })
+
+      if (error) {
+        toast({
+          title: "Sign Up Error",
+          description: error.message,
+          variant: "destructive"
+        })
+      } else {
+        toast({
+          title: "Account Created!",
+          description: "Please check your email to verify your account."
+        })
+      }
+    } catch (error) {
+      toast({
+        title: "Sign Up Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive"
+      })
+    } finally {
+      setEmailLoading(false)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 flex items-center justify-center p-4">
       <Card className="w-full max-w-md shadow-accent">
@@ -96,7 +142,10 @@ export default function Auth() {
           </div>
           <CardTitle className="text-2xl">Welcome to BEATS2BRIDGES</CardTitle>
           <CardDescription>
-            Sign in to book your music lessons and manage your appointments
+            {isSignUp 
+              ? "Create an account to book your music lessons and manage your appointments"
+              : "Sign in to book your music lessons and manage your appointments"
+            }
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -145,7 +194,7 @@ export default function Auth() {
             </div>
           </div>
           
-          <form onSubmit={handleEmailSignIn} className="space-y-4">
+          <form onSubmit={isSignUp ? handleEmailSignUp : handleEmailSignIn} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -181,16 +230,29 @@ export default function Auth() {
               {emailLoading ? (
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Signing in...
+                  {isSignUp ? "Creating account..." : "Signing in..."}
                 </div>
               ) : (
-                "Sign in with Email"
+                isSignUp ? "Sign up with Email" : "Sign in with Email"
               )}
             </Button>
           </form>
           
+          <div className="text-center">
+            <button
+              type="button"
+              onClick={() => setIsSignUp(!isSignUp)}
+              className="text-sm text-primary hover:underline"
+            >
+              {isSignUp 
+                ? "Already have an account? Sign in"
+                : "Don't have an account? Sign up"
+              }
+            </button>
+          </div>
+          
           <p className="text-xs text-muted-foreground text-center">
-            By signing in, you agree to our terms of service and privacy policy
+            By {isSignUp ? "signing up" : "signing in"}, you agree to our terms of service and privacy policy
           </p>
         </CardContent>
       </Card>

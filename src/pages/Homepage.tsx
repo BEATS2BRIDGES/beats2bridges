@@ -52,12 +52,9 @@ const Homepage = () => {
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-6">About Us</h2>
+            <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              At BEATS2BRIDGES, we believe music is the universal language that transcends all boundaries. 
-              Our mission is to create meaningful connections between diverse communities through innovative 
-              musical experiences, educational programs, and collaborative events that celebrate our 
-              shared humanity through rhythm and melody.
+              Beats2Bridges helps young musicians from underprivileged communities by giving them access to music lessons, mentorship, and chances to perform. We work with <a href="https://hungryformusic.org/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hungry for Music</a>, a well-known national organization that supports music access and education. Together, we connect talent with opportunity, helping young artists grow in creativity, confidence, and impact.
             </p>
           </div>
 

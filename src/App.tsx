@@ -11,6 +11,7 @@ import Officers from "./pages/Officers";
 import Booking from "./pages/Booking";
 import Donate from "./pages/Donate";
 import NotFound from "./pages/NotFound";
+import EmailVerified from "./pages/EmailVerified";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/officers" element={<Officers />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/donate" element={<Donate />} />
+            <Route path="/email-verified" element={<EmailVerified />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

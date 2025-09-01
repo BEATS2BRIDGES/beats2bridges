@@ -104,7 +104,7 @@ export default function Auth() {
         email,
         password,
         options: {
-          emailRedirectTo: `${window.location.origin}/booking`
+          emailRedirectTo: `${window.location.origin}/email-verified`
         }
       })
 

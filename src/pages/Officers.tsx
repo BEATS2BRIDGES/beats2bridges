@@ -20,7 +20,7 @@ const Officers = () => {
     {
       id: 2,
       name: "Valerie Bui",
-      title: "Outreach",
+      title: "Secretary",
       image: "/lovable-uploads/67361dbc-c097-406d-b936-fb4c75bd8d60.png",
       hobbies: "Baking, Cheer, Kung fu",
       instruments: "I play piano",

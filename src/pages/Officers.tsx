@@ -41,7 +41,7 @@ const Officers = () => {
       title: "Creative Director",
       image: "/lovable-uploads/6526e6f9-0fb1-4f35-abe3-81af037ad076.png",
       hobbies: "My hobbies are biking, listening to music, chess, and hanging out with friends",
-      instruments: "I play mridangam, and I'm a former western percussionist",
+      instruments: "I play mridangam, and I'm also a western percussionist",
       favoriteAlbum: "My favorite albums are Take Care - Drake and Channel Orange - Frank Ocean"
     },
     {
@@ -64,39 +64,6 @@ const Officers = () => {
             Our leadership team combines decades of experience in music, education, and community development. 
             Get to know the passionate individuals driving our mission forward.
           </p>
-        </div>
-
-        {/* Leadership Philosophy */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          <Card className="shadow-card text-center">
-            <CardContent className="p-6">
-              <Music className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Musical Excellence</h3>
-              <p className="text-muted-foreground">
-                Committed to the highest standards in music education and performance
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="shadow-card text-center">
-            <CardContent className="p-6">
-              <Users className="w-12 h-12 text-secondary mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Community First</h3>
-              <p className="text-muted-foreground">
-                Every decision is made with community impact and inclusivity in mind
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="shadow-card text-center">
-            <CardContent className="p-6">
-              <Target className="w-12 h-12 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Purposeful Action</h3>
-              <p className="text-muted-foreground">
-                Strategic thinking combined with passionate execution for lasting change
-              </p>
-            </CardContent>
-          </Card>
         </div>
 
         {/* Officer Cards */}

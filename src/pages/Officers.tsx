@@ -16,6 +16,15 @@ const Officers = () => {
       hobbies: "I love to write and dance",
       instruments: "I play violin and saxophone",
       favoriteAlbum: "My favourite album is Californication by RHCP"
+    },
+    {
+      id: 2,
+      name: "Valerie Bui",
+      title: "Outreach",
+      image: "/lovable-uploads/67361dbc-c097-406d-b936-fb4c75bd8d60.png",
+      hobbies: "Baking, Cheer, Kung fu",
+      instruments: "I play piano",
+      favoriteAlbum: "Give You the World - Steve Lacy"
     }
   ];
 

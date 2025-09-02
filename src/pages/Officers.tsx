@@ -67,7 +67,7 @@ const Officers = () => {
       id: 7,
       name: "Aarush Dhiman",
       title: "Cofounder",
-      image: "/lovable-uploads/777b1ad3-b117-4a00-9e02-c5c5e9797515.png",
+      image: "/lovable-uploads/b9648911-8d9e-4f40-b781-a8c76052fae6.png",
       hobbies: "Sports (watching/playing basketball), music, spending time with family/friends",
       instruments: "I play guitar",
       favoriteAlbum: "My favorite album is Rodeo - Travis Scott"

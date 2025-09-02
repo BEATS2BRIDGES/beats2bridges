@@ -34,6 +34,15 @@ const Officers = () => {
       hobbies: "My hobbies are driving, coding, and going to the gym",
       instruments: null,
       favoriteAlbum: "My favorite album is DS4EVER by Gunna"
+    },
+    {
+      id: 4,
+      name: "Kedar Shankarram",
+      title: "Creative Director",
+      image: "/lovable-uploads/6526e6f9-0fb1-4f35-abe3-81af037ad076.png",
+      hobbies: "My hobbies are biking, listening to music, chess, and hanging out with friends",
+      instruments: "I play mridangam, and I'm a former western percussionist",
+      favoriteAlbum: "My favorite albums are Take Care - Drake and Channel Orange - Frank Ocean"
     }
   ];
 

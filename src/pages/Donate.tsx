@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Heart, Music, DollarSign } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
@@ -71,12 +72,7 @@ const Donate = () => {
     window.open('https://www.paypal.com/paypalme/BEATS2BRIDGES', '_blank');
   };
 
-  const handleZelleDonation = () => {
-    toast({
-      title: "Zelle Donation",
-      description: "Please send your donation to: beats2bridges@gmail.com via Zelle. Thank you for your support!",
-    });
-  };
+  // Removed handleZelleDonation function as we're now using a popover
 
   return (
     <div className="min-h-screen bg-background">
@@ -127,9 +123,28 @@ const Donate = () => {
                       <Button onClick={handlePayPalDonation} size="lg" className="w-full sm:w-auto">
                         Donate via PayPal
                       </Button>
-                      <Button onClick={handleZelleDonation} size="lg" className="w-full sm:w-auto">
-                        Donate via Zelle
-                      </Button>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <Button size="lg" className="w-full sm:w-auto">
+                            Donate via Zelle
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-80 p-6" align="center">
+                          <div className="text-center space-y-4">
+                            <h3 className="text-lg font-semibold">Scan to Pay with Zelle</h3>
+                            <div className="flex justify-center">
+                              <img 
+                                src="/lovable-uploads/d61eab16-d3d9-4e81-bab6-c0c7677d1db0.png"
+                                alt="Zelle QR Code for beats2bridges@gmail.com" 
+                                className="w-48 h-48 object-contain"
+                              />
+                            </div>
+                            <p className="text-sm text-muted-foreground">
+                              Or send directly to: beats2bridges@gmail.com
+                            </p>
+                          </div>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                   </div>
                 </CardContent>

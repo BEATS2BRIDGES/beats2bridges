@@ -9,13 +9,22 @@ import officer3 from "@/assets/officer-3.jpg";
 const Officers = () => {
   const officers = [
     {
-      id: 1,
-      name: "Anya Joseph",
-      title: "Outreach",
-      image: "/lovable-uploads/375e5b83-6d60-4922-b90c-7ecdd33bdbe6.png",
-      hobbies: "I love to write and dance",
-      instruments: "I play violin and saxophone",
-      favoriteAlbum: "My favourite album is Californication by RHCP"
+      id: 6,
+      name: "Karthi Senthilkumar",
+      title: "Founder",
+      image: "/lovable-uploads/795d730c-2350-4be8-944a-8714be57cc7a.png",
+      hobbies: "My hobbies are listening to music, watching movies, and hanging out with friends",
+      instruments: "I play guitar and piano",
+      favoriteAlbum: "My favorite albums are Nothing Was The Same - Drake and Late Registration - Kanye"
+    },
+    {
+      id: 7,
+      name: "Aarush Dhiman",
+      title: "Cofounder",
+      image: "/lovable-uploads/b9648911-8d9e-4f40-b781-a8c76052fae6.png",
+      hobbies: "Sports (watching/playing basketball), music, spending time with family/friends",
+      instruments: "I play guitar",
+      favoriteAlbum: "My favorite album is Rodeo - Travis Scott"
     },
     {
       id: 2,
@@ -46,6 +55,24 @@ const Officers = () => {
       favoriteAlbum: "My favorite albums are Take Care - Drake and Channel Orange - Frank Ocean"
     },
     {
+      id: 9,
+      name: "Shourya Kukkala",
+      title: "Treasurer",
+      image: "/lovable-uploads/aa8f1b5e-a963-413b-a283-4f03bee662ec.png",
+      hobbies: "My hobby is running",
+      instruments: null,
+      favoriteAlbum: "My favorite album is HEROES & VILLANS by Metro Boomin"
+    },
+    {
+      id: 1,
+      name: "Anya Joseph",
+      title: "Outreach",
+      image: "/lovable-uploads/375e5b83-6d60-4922-b90c-7ecdd33bdbe6.png",
+      hobbies: "I love to write and dance",
+      instruments: "I play violin and saxophone",
+      favoriteAlbum: "My favourite album is Californication by RHCP"
+    },
+    {
       id: 5,
       name: "Konstantinos Vatianou",
       title: "Outreach",
@@ -55,24 +82,6 @@ const Officers = () => {
       favoriteAlbum: "My favorite album is Walkin' by Miles Davis"
     },
     {
-      id: 6,
-      name: "Karthi Senthilkumar",
-      title: "Founder",
-      image: "/lovable-uploads/795d730c-2350-4be8-944a-8714be57cc7a.png",
-      hobbies: "My hobbies are listening to music, watching movies, and hanging out with friends",
-      instruments: "I play guitar and piano",
-      favoriteAlbum: "My favorite albums are Nothing Was The Same - Drake and Late Registration - Kanye"
-    },
-    {
-      id: 7,
-      name: "Aarush Dhiman",
-      title: "Cofounder",
-      image: "/lovable-uploads/b9648911-8d9e-4f40-b781-a8c76052fae6.png",
-      hobbies: "Sports (watching/playing basketball), music, spending time with family/friends",
-      instruments: "I play guitar",
-      favoriteAlbum: "My favorite album is Rodeo - Travis Scott"
-    },
-    {
       id: 8,
       name: "Anirudh Suresh",
       title: "Outreach",
@@ -80,15 +89,6 @@ const Officers = () => {
       hobbies: "My hobbies are mridangam, basketball, math, and running",
       instruments: "I play mridangam",
       favoriteAlbum: "My favorite song is WUNNA by Gunna"
-    },
-    {
-      id: 9,
-      name: "Shourya Kukkala",
-      title: "Treasurer",
-      image: "/lovable-uploads/aa8f1b5e-a963-413b-a283-4f03bee662ec.png",
-      hobbies: "My hobby is running",
-      instruments: null,
-      favoriteAlbum: "My favorite album is HEROES & VILLANS by Metro Boomin"
     }
   ];
 

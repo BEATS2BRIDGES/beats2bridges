@@ -26,6 +26,12 @@ const Homepage = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-hero py-20 text-primary-foreground">
         <div className="absolute inset-0 bg-black/20"></div>
+        <div 
+          className="absolute inset-0 opacity-10 blur-sm bg-center bg-no-repeat bg-contain"
+          style={{
+            backgroundImage: `url('/lovable-uploads/886e34d8-3928-4831-ba84-fdd9ae90db7e.png')`
+          }}
+        ></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-glow-pulse">

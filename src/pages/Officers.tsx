@@ -142,12 +142,13 @@ const Officers = () => {
                 We're always looking for passionate individuals who share our vision of bringing communities 
                 together through music. Explore opportunities to make a difference with BEATS2BRIDGES.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg">
-                  View Open Positions
-                </Button>
-                <Button variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                  Volunteer With Us
+              <div className="flex justify-center">
+                <Button 
+                  variant="secondary" 
+                  size="lg"
+                  onClick={() => window.open('https://forms.gle/GKDUXWWnAXkN4pxaA', '_blank')}
+                >
+                  Apply to join as an officer or teacher
                 </Button>
               </div>
             </CardContent>

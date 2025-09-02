@@ -153,6 +153,7 @@ export default function Auth() {
         <CardContent className="space-y-4">
           {activeForm === 'none' && (
             <>
+              {/* Google Sign-in Button - Hidden but code preserved for future use
               <Button 
                 onClick={handleGoogleSignIn}
                 disabled={loading}
@@ -188,6 +189,7 @@ export default function Auth() {
                   </div>
                 )}
               </Button>
+              */}
               
               <Button 
                 onClick={() => setActiveForm('signin')}

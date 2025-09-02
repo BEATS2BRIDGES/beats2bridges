@@ -148,7 +148,7 @@ const Officers = () => {
                   size="lg"
                   onClick={() => window.open('https://forms.gle/GKDUXWWnAXkN4pxaA', '_blank')}
                 >
-                  Apply to join as an officer or teacher
+                  Apply to join as an Officer or Teacher
                 </Button>
               </div>
             </CardContent>

@@ -33,7 +33,8 @@ const Officers = () => {
       image: "/lovable-uploads/50fd21b9-1818-48ee-bd86-8090f8ce1a67.png",
       hobbies: "My hobbies are driving, coding, and going to the gym",
       instruments: null,
-      favoriteAlbum: "My favorite album is DS4EVER by Gunna"
+      favoriteAlbum: "My favorite album is DS4EVER by Gunna",
+      funFact: "Fun fact: I made this website"
     },
     {
       id: 4,
@@ -127,6 +128,12 @@ const Officers = () => {
                     <span className="text-primary mr-2">•</span>
                     {officer.favoriteAlbum}
                   </li>
+                  {officer.funFact && (
+                    <li className="text-muted-foreground flex items-start">
+                      <span className="text-primary mr-2">•</span>
+                      {officer.funFact}
+                    </li>
+                  )}
                 </ul>
               </CardContent>
             </Card>

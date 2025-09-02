@@ -86,7 +86,7 @@ const Officers = () => {
       name: "Shourya Kukkala",
       title: "Treasurer",
       image: "/lovable-uploads/aa8f1b5e-a963-413b-a283-4f03bee662ec.png",
-      hobbies: "Running",
+      hobbies: "My hobby is running",
       instruments: null,
       favoriteAlbum: "My favorite album is HEROES & VILLANS by Metro Boomin"
     }

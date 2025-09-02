@@ -115,15 +115,21 @@ All colors MUST be HSL.
 @layer base {
   * {
     @apply border-border;
+    transition: var(--transition-smooth);
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-system;
   }
 
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Global smooth transitions */
+  button, a, card, input {
+    transition: var(--transition-smooth);
   }
 
   /* Scroll animations */

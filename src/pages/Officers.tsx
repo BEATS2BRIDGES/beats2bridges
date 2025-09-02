@@ -70,6 +70,15 @@ const Officers = () => {
       hobbies: "My hobbies are playing the guitar, watching TikTok, and hanging out with friends",
       instruments: "I play guitar",
       favoriteAlbum: "My favorite album is Take Care by Drake"
+    },
+    {
+      id: 8,
+      name: "Anirudh Suresh",
+      title: "Outreach",
+      image: "/placeholder.svg",
+      hobbies: "My hobbies are mridangam, basketball, math, and running",
+      instruments: "I play mridangam",
+      favoriteAlbum: "Favorite album coming soon"
     }
   ];
 

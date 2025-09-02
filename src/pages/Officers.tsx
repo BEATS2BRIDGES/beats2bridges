@@ -78,7 +78,7 @@ const Officers = () => {
       image: "/placeholder.svg",
       hobbies: "My hobbies are mridangam, basketball, math, and running",
       instruments: "I play mridangam",
-      favoriteAlbum: "Favorite album coming soon"
+      favoriteAlbum: "My favorite album is Bully by Kanye West"
     }
   ];
 

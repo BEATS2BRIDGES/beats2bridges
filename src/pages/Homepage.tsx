@@ -40,8 +40,10 @@ const Homepage = () => {
                   Book With Us <ChevronRight className="ml-2" size={20} />
                 </Link>
               </Button>
-              <Button variant="secondary" size="lg">
-                Learn More
+              <Button variant="secondary" size="lg" asChild>
+                <Link to="/donate">
+                  Donate
+                </Link>
               </Button>
             </div>
           </div>
@@ -53,38 +55,36 @@ const Homepage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Beats2Bridges helps young musicians from underprivileged communities by giving them access to music lessons, mentorship, and chances to perform. We work with <a href="https://hungryformusic.org/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hungry for Music</a>, a well-known national organization that supports music access and education. Together, we connect talent with opportunity, helping young artists grow in creativity, confidence, and impact.
             </p>
+            <h3 className="text-2xl font-bold">The Beats2Bridges Process</h3>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="shadow-card">
               <CardContent className="p-6 text-center">
-                <Music className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-3">Musical Excellence</h3>
+                <h3 className="text-xl font-semibold mb-3">Music Lessons</h3>
                 <p className="text-muted-foreground">
-                  Promoting high-quality musical performances and education across all genres and styles.
+                  We offer low-cost music lessons to make learning accessible for those in need.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="shadow-card">
               <CardContent className="p-6 text-center">
-                <Users className="w-12 h-12 text-secondary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-3">Community Building</h3>
+                <h3 className="text-xl font-semibold mb-3">Hungry for Music</h3>
                 <p className="text-muted-foreground">
-                  Fostering connections between diverse groups through collaborative musical projects.
+                  We donate instruments to Hungry for Music through our partnership with this national organization.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="shadow-card">
               <CardContent className="p-6 text-center">
-                <Heart className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-3">Social Impact</h3>
+                <h3 className="text-xl font-semibold mb-3">Making Change</h3>
                 <p className="text-muted-foreground">
-                  Creating positive change in communities through music therapy and outreach programs.
+                  Our low-cost lessons make learning an instrument accessible for everyone.
                 </p>
               </CardContent>
             </Card>

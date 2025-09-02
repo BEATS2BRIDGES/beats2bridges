@@ -120,4 +120,55 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Scroll animations */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-animate-delay-1 {
+    transition-delay: 0.1s;
+  }
+
+  .scroll-animate-delay-2 {
+    transition-delay: 0.2s;
+  }
+
+  .scroll-animate-delay-3 {
+    transition-delay: 0.3s;
+  }
+
+  .scroll-animate-slide-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-animate-slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-animate-slide-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-animate-slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

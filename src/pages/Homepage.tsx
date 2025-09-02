@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Music, Users, Heart, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Homepage = () => {

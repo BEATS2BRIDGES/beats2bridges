@@ -24,7 +24,16 @@ const Officers = () => {
       image: "/lovable-uploads/67361dbc-c097-406d-b936-fb4c75bd8d60.png",
       hobbies: "My hobbies are baking, cheer and kung fu",
       instruments: "I play piano",
-      favoriteAlbum: "Give You the World - Steve Lacy"
+      favoriteAlbum: "My favorite song is Give You the World - Steve Lacy"
+    },
+    {
+      id: 3,
+      name: "Anay Thakkar",
+      title: "Officer",
+      image: "/lovable-uploads/56b58ec4-0d46-4ae6-b8a2-183a02c46031.png",
+      hobbies: "My hobbies are driving, coding, and gym",
+      instruments: null,
+      favoriteAlbum: "My favorite album is DS4EVER by Gunna"
     }
   ];
 
@@ -96,10 +105,12 @@ const Officers = () => {
                     <span className="text-primary mr-2">•</span>
                     {officer.hobbies}
                   </li>
-                  <li className="text-muted-foreground flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    {officer.instruments}
-                  </li>
+                  {officer.instruments && (
+                    <li className="text-muted-foreground flex items-start">
+                      <span className="text-primary mr-2">•</span>
+                      {officer.instruments}
+                    </li>
+                  )}
                   <li className="text-muted-foreground flex items-start">
                     <span className="text-primary mr-2">•</span>
                     {officer.favoriteAlbum}

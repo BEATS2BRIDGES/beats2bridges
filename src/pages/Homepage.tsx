@@ -58,7 +58,7 @@ const Homepage = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Beats2Bridges helps young musicians from underprivileged communities by giving them access to music lessons, mentorship, and chances to perform. We work with <a href="https://hungryformusic.org/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hungry for Music</a>, a well-known national organization that supports music access and education. Together, we connect talent with opportunity, helping young artists grow in creativity, confidence, and impact.
             </p>
-            <h3 className="text-2xl font-bold">The Beats2Bridges Process</h3>
+            <h2 className="text-4xl font-bold">THE BEATS2BRIDGES PROCESS</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">

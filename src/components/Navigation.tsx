@@ -23,7 +23,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/886e34d8-3928-4831-ba84-fdd9ae90db7e.png" 
               alt="Beats2Bridges Logo" 
-              className="h-8 w-auto"
+              className="h-8 w-8 rounded-full object-cover"
             />
             <span>BEATS2BRIDGES</span>
           </Link>

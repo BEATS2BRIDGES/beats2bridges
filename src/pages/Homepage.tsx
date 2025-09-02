@@ -8,15 +8,15 @@ import heroImage from "@/assets/hero-image.jpg";
 const Homepage = () => {
   const carouselImages = [
     {
-      url: heroImage,
+      url: "/lovable-uploads/886e34d8-3928-4831-ba84-fdd9ae90db7e.png",
       caption: "Connecting Communities Through Music"
     },
     {
-      url: heroImage,
+      url: "/lovable-uploads/886e34d8-3928-4831-ba84-fdd9ae90db7e.png",
       caption: "Building Bridges With Every Beat"
     },
     {
-      url: heroImage,
+      url: "/lovable-uploads/886e34d8-3928-4831-ba84-fdd9ae90db7e.png",
       caption: "Uniting Through Rhythm and Harmony"
     }
   ];
@@ -96,10 +96,7 @@ const Homepage = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-6">Our Journey</h2>
-            <p className="text-xl text-muted-foreground">
-              Discover the moments that define our mission
-            </p>
+            <h2 className="text-4xl font-bold mb-6">Gallery</h2>
           </div>
 
           <div className="max-w-4xl mx-auto">

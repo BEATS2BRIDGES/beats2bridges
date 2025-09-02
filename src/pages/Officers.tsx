@@ -10,6 +10,16 @@ const Officers = () => {
   const officers = [
     {
       id: 1,
+      name: "Anya Joseph",
+      title: "Music Program Coordinator",
+      image: "/lovable-uploads/375e5b83-6d60-4922-b90c-7ecdd33bdbe6.png",
+      bio: "Anya brings her passion for music and movement to BEATS2BRIDGES as a multi-instrumentalist specializing in violin and saxophone. When not making music, she channels her creativity through writing and dance, believing that all forms of artistic expression can build meaningful connections within communities.",
+      expertise: ["Violin Performance", "Saxophone", "Creative Writing", "Dance", "Music Appreciation"],
+      email: "anya@beats2bridges.com",
+      linkedin: "https://linkedin.com/in/anyajoseph"
+    },
+    {
+      id: 2,
       name: "Sarah Johnson",
       title: "Executive Director & Founder",
       image: officer1,
@@ -19,7 +29,7 @@ const Officers = () => {
       linkedin: "https://linkedin.com/in/sarahjohnson"
     },
     {
-      id: 2,
+      id: 3,
       name: "Marcus Rodriguez",
       title: "Creative Director & DJ",
       image: officer2,
@@ -29,7 +39,7 @@ const Officers = () => {
       linkedin: "https://linkedin.com/in/marcusrodriguez"
     },
     {
-      id: 3,
+      id: 4,
       name: "Dr. Amira Patel",
       title: "Community Partnerships Manager",
       image: officer3,

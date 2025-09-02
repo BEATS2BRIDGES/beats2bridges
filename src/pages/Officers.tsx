@@ -29,7 +29,7 @@ const Officers = () => {
     {
       id: 3,
       name: "Anay Thakkar",
-      title: "Officer",
+      title: "Creative Director",
       image: "/lovable-uploads/56b58ec4-0d46-4ae6-b8a2-183a02c46031.png",
       hobbies: "My hobbies are driving, coding, and gym",
       instruments: null,

@@ -139,9 +139,6 @@ const Donate = () => {
                                 className="w-48 h-48 object-contain"
                               />
                             </div>
-                            <p className="text-sm text-muted-foreground">
-                              Or send directly to: beats2bridges@gmail.com
-                            </p>
                           </div>
                         </PopoverContent>
                       </Popover>

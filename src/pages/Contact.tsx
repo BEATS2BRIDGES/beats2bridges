@@ -5,10 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, Instagram, Send } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,19 +26,39 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: ""
-    });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "There was an issue sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -125,9 +147,9 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" className="w-full" size="lg">
+                <Button type="submit" disabled={isSubmitting} className="w-full" size="lg">
                   <Send className="mr-2" size={18} />
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>
@@ -143,36 +165,36 @@ const Contact = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-4 cursor-pointer hover:bg-muted/50 p-2 rounded-lg transition-colors"
+                     onClick={() => window.open('mailto:beats2bridges@gmail.com')}>
                   <div className="bg-primary/10 p-3 rounded-lg">
                     <Mail className="text-primary" size={24} />
                   </div>
                   <div>
                     <h3 className="font-semibold">Email Us</h3>
-                    <p className="text-muted-foreground">hello@beats2bridges.com</p>
+                    <p className="text-muted-foreground">beats2bridges@gmail.com</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-4 cursor-pointer hover:bg-muted/50 p-2 rounded-lg transition-colors"
+                     onClick={() => window.open('tel:+16692549293')}>
                   <div className="bg-secondary/10 p-3 rounded-lg">
                     <Phone className="text-secondary" size={24} />
                   </div>
                   <div>
                     <h3 className="font-semibold">Call Us</h3>
-                    <p className="text-muted-foreground">(555) BEATS-22</p>
+                    <p className="text-muted-foreground">(669) 254-9293</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-4 cursor-pointer hover:bg-muted/50 p-2 rounded-lg transition-colors"
+                     onClick={() => window.open('https://www.instagram.com/beats2bridges/', '_blank')}>
                   <div className="bg-accent/10 p-3 rounded-lg">
-                    <MapPin className="text-accent" size={24} />
+                    <Instagram className="text-accent" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Visit Us</h3>
-                    <p className="text-muted-foreground">
-                      123 Music Avenue<br />
-                      Harmony City, HC 12345
-                    </p>
+                    <h3 className="font-semibold">Follow Us on Instagram</h3>
+                    <p className="text-muted-foreground">@beats2bridges</p>
                   </div>
                 </div>
               </CardContent>

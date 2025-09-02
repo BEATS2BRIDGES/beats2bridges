@@ -30,8 +30,8 @@ const Officers = () => {
       id: 3,
       name: "Anay Thakkar",
       title: "Creative Director",
-      image: "/lovable-uploads/56b58ec4-0d46-4ae6-b8a2-183a02c46031.png",
-      hobbies: "My hobbies are driving, coding, and gym",
+      image: "/lovable-uploads/50fd21b9-1818-48ee-bd86-8090f8ce1a67.png",
+      hobbies: "My hobbies are driving, coding, and going to the gym",
       instruments: null,
       favoriteAlbum: "My favorite album is DS4EVER by Gunna"
     }

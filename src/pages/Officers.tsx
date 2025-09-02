@@ -43,6 +43,15 @@ const Officers = () => {
       hobbies: "My hobbies are biking, listening to music, chess, and hanging out with friends",
       instruments: "I play mridangam, and I'm a former western percussionist",
       favoriteAlbum: "My favorite albums are Take Care - Drake and Channel Orange - Frank Ocean"
+    },
+    {
+      id: 5,
+      name: "Konstantinos Vatianou",
+      title: "Outreach",
+      image: "/lovable-uploads/3c751520-f2ea-4eb1-8699-b9ace7247521.png",
+      hobbies: "My hobbies are volleyball, running, and quiz bowl",
+      instruments: "I play trumpet",
+      favoriteAlbum: "My favorite album is Walkin' by Miles Davis"
     }
   ];
 

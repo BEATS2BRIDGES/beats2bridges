@@ -52,6 +52,15 @@ const Officers = () => {
       hobbies: "My hobbies are volleyball, running, and quiz bowl",
       instruments: "I play trumpet",
       favoriteAlbum: "My favorite album is Walkin' by Miles Davis"
+    },
+    {
+      id: 6,
+      name: "Karthi Senthilkumar",
+      title: "Founder",
+      image: "/lovable-uploads/795d730c-2350-4be8-944a-8714be57cc7a.png",
+      hobbies: "My hobbies are listening to music, watching movies, and hanging out with friends",
+      instruments: "I play guitar and piano",
+      favoriteAlbum: "My favorite albums are Nothing Was The Same - Drake and Late Registration - Kanye"
     }
   ];
 

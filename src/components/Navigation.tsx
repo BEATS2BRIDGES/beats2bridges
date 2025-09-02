@@ -19,8 +19,13 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-primary-foreground">
-            BEATS2BRIDGES
+          <Link to="/" className="flex items-center space-x-3 text-2xl font-bold text-primary-foreground">
+            <img 
+              src="/lovable-uploads/886e34d8-3928-4831-ba84-fdd9ae90db7e.png" 
+              alt="Beats2Bridges Logo" 
+              className="h-8 w-auto"
+            />
+            <span>BEATS2BRIDGES</span>
           </Link>
 
           {/* Navigation Items */}

@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Users, Award, Handshake } from "lucide-react";
-import partnerLogo from "@/assets/partner-logo.jpg";
+import partnerLogo from "/lovable-uploads/3b017f7d-141c-40f6-a8f2-16904e10c8fb.png";
 
 const Partners = () => {
   return (
@@ -58,19 +58,15 @@ const Partners = () => {
               <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gradient-card shadow-card">
                 <img
                   src={partnerLogo}
-                  alt="Harmony Music Foundation"
+                  alt="Hungry for Music"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <CardTitle className="text-2xl">Harmony Music Foundation</CardTitle>
-              <CardDescription className="text-lg">
-                Leading Music Education & Community Outreach Organization
-              </CardDescription>
+              <CardTitle className="text-2xl">Hungry for Music</CardTitle>
             </CardHeader>
             
             <CardContent className="space-y-6">
               <div className="flex flex-wrap gap-2 justify-center">
-                <Badge variant="secondary">Music Education</Badge>
                 <Badge variant="outline">Community Programs</Badge>
                 <Badge variant="outline">Youth Development</Badge>
                 <Badge variant="outline">Cultural Arts</Badge>
@@ -80,7 +76,7 @@ const Partners = () => {
                 <div>
                   <h4 className="font-semibold text-lg mb-3">About Our Partnership</h4>
                   <p className="text-muted-foreground mb-4">
-                    Since 2020, Harmony Music Foundation has been our cornerstone partner in delivering 
+                    Since 2020, Hungry for Music has been our cornerstone partner in delivering 
                     transformative music education programs to underserved communities. Together, we've 
                     reached over 5,000 students and families through innovative workshops, performances, 
                     and mentorship programs.

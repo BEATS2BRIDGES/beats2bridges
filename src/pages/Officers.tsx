@@ -11,13 +11,11 @@ const Officers = () => {
     {
       id: 1,
       name: "Anya Joseph",
-      title: "Music Program Coordinator",
+      title: "Outreach",
       image: "/lovable-uploads/375e5b83-6d60-4922-b90c-7ecdd33bdbe6.png",
       hobbies: "I love to write and dance",
       instruments: "I play violin and saxophone",
-      favoriteAlbum: "My favourite album is Californication by RHCP",
-      email: "anya@beats2bridges.com",
-      linkedin: "https://linkedin.com/in/anyajoseph"
+      favoriteAlbum: "My favourite album is Californication by RHCP"
     }
   ];
 
@@ -84,28 +82,20 @@ const Officers = () => {
               </CardHeader>
               
               <CardContent className="space-y-4">
-                <div className="space-y-3 text-sm">
-                  <p className="text-muted-foreground">
+                <ul className="space-y-2 text-sm">
+                  <li className="text-muted-foreground flex items-start">
+                    <span className="text-primary mr-2">•</span>
                     {officer.hobbies}
-                  </p>
-                  <p className="text-muted-foreground">
+                  </li>
+                  <li className="text-muted-foreground flex items-start">
+                    <span className="text-primary mr-2">•</span>
                     {officer.instruments}
-                  </p>
-                  <p className="text-muted-foreground">
+                  </li>
+                  <li className="text-muted-foreground flex items-start">
+                    <span className="text-primary mr-2">•</span>
                     {officer.favoriteAlbum}
-                  </p>
-                </div>
-
-                <div className="flex gap-2 pt-2">
-                  <Button size="sm" variant="outline" className="flex-1">
-                    <Mail size={14} className="mr-1" />
-                    Email
-                  </Button>
-                  <Button size="sm" variant="outline" className="flex-1">
-                    <Linkedin size={14} className="mr-1" />
-                    LinkedIn
-                  </Button>
-                </div>
+                  </li>
+                </ul>
               </CardContent>
             </Card>
           ))}

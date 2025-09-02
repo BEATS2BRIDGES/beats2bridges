@@ -79,7 +79,7 @@ const Partners = () => {
         </div>
 
         {/* Partnership CTA */}
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <Card className="shadow-glow bg-gradient-hero text-primary-foreground">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-4">Become a Partner</h3>
@@ -87,12 +87,11 @@ const Partners = () => {
                 Join our network of partners and help us expand the reach of music education and community building. 
                 Together, we can create lasting change through the power of music.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg">
-                  Partnership Opportunities
-                </Button>
-                <Button variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                  Contact Us
+              <div className="flex justify-center">
+                <Button variant="secondary" size="lg" asChild>
+                  <a href="/contact">
+                    Contact Us to Become a Partner
+                  </a>
                 </Button>
               </div>
             </CardContent>

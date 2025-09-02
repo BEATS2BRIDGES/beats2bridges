@@ -206,8 +206,10 @@ const Contact = () => {
                 <p className="mb-4">
                   Join our community of music lovers and make a difference through the power of sound.
                 </p>
-                <Button variant="secondary" className="w-full">
-                  Learn More About Our Programs
+                <Button variant="secondary" className="w-full" asChild>
+                  <a href="/">
+                    Learn More About Our Programs
+                  </a>
                 </Button>
               </CardContent>
             </Card>

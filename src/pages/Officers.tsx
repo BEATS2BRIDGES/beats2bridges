@@ -80,6 +80,15 @@ const Officers = () => {
       hobbies: "My hobbies are mridangam, basketball, math, and running",
       instruments: "I play mridangam",
       favoriteAlbum: "My favorite song is WUNNA by Gunna"
+    },
+    {
+      id: 9,
+      name: "Shourya Kukkala",
+      title: "Treasurer",
+      image: "/lovable-uploads/aa8f1b5e-a963-413b-a283-4f03bee662ec.png",
+      hobbies: "Running",
+      instruments: null,
+      favoriteAlbum: "My favorite album is HEROES & VILLANS by Metro Boomin"
     }
   ];
 

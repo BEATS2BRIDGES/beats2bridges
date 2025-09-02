@@ -286,11 +286,23 @@ const Booking = () => {
         status: 'pending'
       };
 
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('bookings')
-        .insert([bookingData]);
+        .insert([bookingData])
+        .select()
+        .single();
 
       if (error) throw error;
+
+      // Send approval email to admin
+      try {
+        await supabase.functions.invoke('booking-approval/notify', {
+          body: { bookingId: data.id }
+        });
+      } catch (emailError) {
+        console.error('Error sending approval email:', emailError);
+        // Don't fail the booking if email fails
+      }
 
       toast({
         title: "Booking Request Submitted!",

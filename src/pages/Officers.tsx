@@ -75,7 +75,7 @@ const Officers = () => {
       id: 8,
       name: "Anirudh Suresh",
       title: "Outreach",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/4e5d7e1c-2c5f-4193-a3d1-f13a085a2dfa.png",
       hobbies: "My hobbies are mridangam, basketball, math, and running",
       instruments: "I play mridangam",
       favoriteAlbum: "My favorite album is Bully by Kanye West"

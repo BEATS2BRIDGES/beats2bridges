@@ -61,6 +61,15 @@ const Officers = () => {
       hobbies: "My hobbies are listening to music, watching movies, and hanging out with friends",
       instruments: "I play guitar and piano",
       favoriteAlbum: "My favorite albums are Nothing Was The Same - Drake and Late Registration - Kanye"
+    },
+    {
+      id: 7,
+      name: "Aarush Dhiman",
+      title: "Cofounder",
+      image: "/lovable-uploads/777b1ad3-b117-4a00-9e02-c5c5e9797515.png",
+      hobbies: "My hobbies are playing the guitar, watching TikTok, and hanging out with friends",
+      instruments: "I play guitar",
+      favoriteAlbum: "My favorite album is Take Care by Drake"
     }
   ];
 

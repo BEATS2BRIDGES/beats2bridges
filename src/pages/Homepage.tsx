@@ -27,7 +27,7 @@ const Homepage = () => {
       <section className="relative bg-gradient-hero py-20 text-primary-foreground">
         <div className="absolute inset-0 bg-black/20"></div>
         <div 
-          className="absolute inset-0 opacity-10 blur-sm bg-center bg-no-repeat bg-contain"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-10 blur bg-center bg-no-repeat bg-cover rounded-full"
           style={{
             backgroundImage: `url('/lovable-uploads/886e34d8-3928-4831-ba84-fdd9ae90db7e.png')`
           }}

@@ -68,7 +68,7 @@ const Donate = () => {
 
   const handlePayPalDonation = () => {
     // PayPal integration would go here
-    window.open('https://www.paypal.com/donate/?business=beats2bridges@gmail.com', '_blank');
+    window.open('https://www.paypal.com/paypalme/BEATS2BRIDGES', '_blank');
   };
 
   const handleZelleDonation = () => {
@@ -127,7 +127,7 @@ const Donate = () => {
                       <Button onClick={handlePayPalDonation} size="lg" className="w-full sm:w-auto">
                         Donate via PayPal
                       </Button>
-                      <Button onClick={handleZelleDonation} variant="outline" size="lg" className="w-full sm:w-auto">
+                      <Button onClick={handleZelleDonation} size="lg" className="w-full sm:w-auto">
                         Donate via Zelle
                       </Button>
                     </div>

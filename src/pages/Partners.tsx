@@ -16,38 +16,6 @@ const Partners = () => {
           </p>
         </div>
 
-        {/* Partnership Benefits */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          <Card className="shadow-card text-center">
-            <CardContent className="p-6">
-              <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Community Reach</h3>
-              <p className="text-muted-foreground">
-                Expand your impact through collaborative community programs
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="shadow-card text-center">
-            <CardContent className="p-6">
-              <Award className="w-12 h-12 text-secondary mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Recognition</h3>
-              <p className="text-muted-foreground">
-                Gain visibility as a champion of arts and community development
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="shadow-card text-center">
-            <CardContent className="p-6">
-              <Handshake className="w-12 h-12 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Collaboration</h3>
-              <p className="text-muted-foreground">
-                Join forces with like-minded organizations for greater impact
-              </p>
-            </CardContent>
-          </Card>
-        </div>
 
         {/* Featured Partner */}
         <div className="max-w-4xl mx-auto mb-16">
@@ -76,14 +44,10 @@ const Partners = () => {
                 <div>
                   <h4 className="font-semibold text-lg mb-3">About Our Partnership</h4>
                   <p className="text-muted-foreground mb-4">
-                    Since 2020, Hungry for Music has been our cornerstone partner in delivering 
-                    transformative music education programs to underserved communities. Together, we've 
-                    reached over 5,000 students and families through innovative workshops, performances, 
-                    and mentorship programs.
+                    Hungry for Music is a 501(c)(3) nonprofit organization dedicated to opening the world of music to children who otherwise would not have access. Their mission is simple but powerful: collect and redistribute instruments to young people with a hunger to play. Over the past 30 years, they have placed more than 22,000 instruments into the hands of aspiring musicians across all 50 states and 35 countries. From guitars and violins to trombones and xylophones, these donations have transformed the lives of thousands of children, providing the uplifting and life-changing gift of music.
                   </p>
                   <p className="text-muted-foreground">
-                    Their commitment to excellence and community-first approach aligns perfectly with 
-                    our mission to bridge divides through the universal language of music.
+                    At Beats2Bridges, we are proud to support Hungry for Music's mission by donating a portion of our proceeds to help them expand their reach. Through our contributions, we help put more instruments into the hands of kids who need them most—ensuring that the gift of music continues to inspire and change lives around the world.
                   </p>
                 </div>
 
@@ -91,21 +55,21 @@ const Partners = () => {
                   <div className="bg-muted/50 p-4 rounded-lg">
                     <h5 className="font-semibold mb-2">Partnership Highlights</h5>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>• 50+ joint community events annually</li>
-                      <li>• Scholarship program for aspiring musicians</li>
-                      <li>• Mobile music education unit</li>
-                      <li>• Instrument donation and repair program</li>
-                      <li>• Professional development workshops</li>
+                      <li>• Coming soon</li>
                     </ul>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button variant="default" className="flex-1">
-                      <ExternalLink className="mr-2" size={16} />
-                      Visit Website
+                    <Button variant="default" className="flex-1" asChild>
+                      <a href="https://hungryformusic.org/" target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2" size={16} />
+                        Visit Website
+                      </a>
                     </Button>
-                    <Button variant="outline" className="flex-1">
-                      View Projects
+                    <Button variant="outline" className="flex-1" asChild>
+                      <a href="https://hungryformusic.org/events/" target="_blank" rel="noopener noreferrer">
+                        View Projects
+                      </a>
                     </Button>
                   </div>
                 </div>

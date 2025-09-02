@@ -13,40 +13,11 @@ const Officers = () => {
       name: "Anya Joseph",
       title: "Music Program Coordinator",
       image: "/lovable-uploads/375e5b83-6d60-4922-b90c-7ecdd33bdbe6.png",
-      bio: "Anya brings her passion for music and movement to BEATS2BRIDGES as a multi-instrumentalist specializing in violin and saxophone. When not making music, she channels her creativity through writing and dance, believing that all forms of artistic expression can build meaningful connections within communities.",
-      expertise: ["Violin Performance", "Saxophone", "Creative Writing", "Dance", "Music Appreciation"],
+      hobbies: "I love to write and dance",
+      instruments: "I play violin and saxophone",
+      favoriteAlbum: "My favourite album is Californication by RHCP",
       email: "anya@beats2bridges.com",
       linkedin: "https://linkedin.com/in/anyajoseph"
-    },
-    {
-      id: 2,
-      name: "Sarah Johnson",
-      title: "Executive Director & Founder",
-      image: officer1,
-      bio: "With over 15 years in music education and community development, Sarah founded BEATS2BRIDGES to create meaningful connections through music. She holds a Master's in Music Education and has led programs that have impacted thousands of lives.",
-      expertise: ["Music Education", "Community Outreach", "Program Development", "Arts Administration"],
-      email: "sarah@beats2bridges.com",
-      linkedin: "https://linkedin.com/in/sarahjohnson"
-    },
-    {
-      id: 3,
-      name: "Marcus Rodriguez",
-      title: "Creative Director & DJ",
-      image: officer2,
-      bio: "Marcus brings 12 years of professional DJ experience and music production expertise to our team. He specializes in creating inclusive musical experiences that bring diverse communities together through innovative sound design and live performances.",
-      expertise: ["Music Production", "Live Performance", "Event Planning", "Youth Mentorship"],
-      email: "marcus@beats2bridges.com",
-      linkedin: "https://linkedin.com/in/marcusrodriguez"
-    },
-    {
-      id: 4,
-      name: "Dr. Amira Patel",
-      title: "Community Partnerships Manager",
-      image: officer3,
-      bio: "Dr. Patel holds a PhD in Community Psychology and has spent the last decade building bridges between organizations and communities. Her research focuses on how arts programs can strengthen social cohesion and cultural understanding.",
-      expertise: ["Community Psychology", "Partnership Development", "Research & Evaluation", "Cultural Competency"],
-      email: "amira@beats2bridges.com",
-      linkedin: "https://linkedin.com/in/amirapatel"
     }
   ];
 
@@ -113,19 +84,16 @@ const Officers = () => {
               </CardHeader>
               
               <CardContent className="space-y-4">
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {officer.bio}
-                </p>
-
-                <div>
-                  <h4 className="font-semibold mb-2">Expertise</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {officer.expertise.map((skill, index) => (
-                      <Badge key={index} variant="secondary" className="text-xs">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
+                <div className="space-y-3 text-sm">
+                  <p className="text-muted-foreground">
+                    {officer.hobbies}
+                  </p>
+                  <p className="text-muted-foreground">
+                    {officer.instruments}
+                  </p>
+                  <p className="text-muted-foreground">
+                    {officer.favoriteAlbum}
+                  </p>
                 </div>
 
                 <div className="flex gap-2 pt-2">

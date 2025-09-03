@@ -231,7 +231,7 @@ const Donate = () => {
                       />
                     </div>
 
-                    <Button type="submit" disabled={isSubmitting} className="w-full">
+                    <Button type="submit" disabled={isSubmitting} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
                       {isSubmitting ? "Submitting..." : "Submit Donation Request"}
                     </Button>
                   </form>

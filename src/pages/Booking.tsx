@@ -336,17 +336,17 @@ const Booking = () => {
     let border = 'none';
     let textDecoration = 'none';
     
-    if (event.resource === 'unavailable') {
-      backgroundColor = '#ef4444';
+     if (event.resource === 'unavailable') {
+      backgroundColor = '#b91c1c';
       color = 'white';
       opacity = '0.8';
       textDecoration = 'line-through';
-      border = '2px solid #dc2626';
+      border = '2px solid #991b1b';
     } else if (event.resource === 'selected') {
-      backgroundColor = '#10b981';
+      backgroundColor = '#047857';
       color = 'white';
       opacity = '0.9';
-      border = '2px solid #059669';
+      border = '2px solid #065f46';
     }
     
     const style: any = {
@@ -448,10 +448,10 @@ const Booking = () => {
                 </div>
                 {selectedSlot && (
                   <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
-                    <p className="font-semibold text-primary">
+                    <p className="font-semibold text-white">
                       Selected: {moment(selectedSlot.start).format('MMMM Do, YYYY [at] h:mm A')} - {moment(selectedSlot.end).format('h:mm A')}
                     </p>
-                    <p className="text-sm text-muted-foreground mt-1">
+                    <p className="text-sm text-white mt-1">
                       Duration: 1 hour
                     </p>
                   </div>
@@ -462,8 +462,8 @@ const Booking = () => {
                   <div className="text-xs text-white space-y-1">
                     <p>• Weekdays: 6:00 PM - 8:00 PM</p>
                     <p>• Weekends: 8:00 AM - 8:00 PM</p>
-                    <p>• <span className="inline-block w-3 h-3 bg-red-500/60 border border-red-600 rounded mr-1"></span>Unavailable times</p>
-                    <p>• <span className="inline-block w-3 h-3 bg-green-500 border border-green-600 rounded mr-1"></span>Your selection</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-red-800/80 border border-red-900 rounded mr-1"></span>Unavailable times</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-emerald-700 border border-emerald-800 rounded mr-1"></span>Your selection</p>
                   </div>
                 </div>
               </CardContent>

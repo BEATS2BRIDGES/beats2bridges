@@ -80,7 +80,7 @@ const Donate = () => {
       <section className="py-20 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <Heart className="w-16 h-16 mx-auto mb-6" />
-          <h1 className="text-5xl font-bold mb-6">Support Our Mission</h1>
+          <h1 className="text-5xl font-bold mb-6 text-white">Support Our Mission</h1>
           <p className="text-xl max-w-3xl mx-auto">
             Help us bridge communities through music by donating instruments or contributing financially 
             to support young musicians from underprivileged communities.
@@ -106,7 +106,7 @@ const Donate = () => {
             <TabsContent value="money" className="mt-8">
               <Card>
                 <CardHeader className="text-center">
-                  <CardTitle className="flex items-center justify-center gap-2">
+                  <CardTitle className="flex items-center justify-center gap-2 text-white">
                     <DollarSign className="w-6 h-6" />
                     Make a Financial Contribution
                   </CardTitle>
@@ -151,7 +151,7 @@ const Donate = () => {
             <TabsContent value="instruments" className="mt-8">
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-white">
                     <Music className="w-6 h-6" />
                     Donate Musical Instruments
                   </CardTitle>
@@ -245,14 +245,14 @@ const Donate = () => {
       {/* Impact Section */}
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Your Impact</h2>
+          <h2 className="text-3xl font-bold mb-8 text-white">Your Impact</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
-              <h3 className="text-xl font-semibold mb-4">$25</h3>
+              <h3 className="text-xl font-semibold mb-4 text-white">$25</h3>
               <p className="text-muted-foreground">Provides one music lesson for a young musician</p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4">Instrument</h3>
+              <h3 className="text-xl font-semibold mb-4 text-white">Instrument</h3>
               <p className="text-muted-foreground">Gives a young musician the tools to pursue their passion</p>
             </div>
           </div>

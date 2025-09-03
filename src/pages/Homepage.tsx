@@ -65,7 +65,7 @@ const Homepage = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="shadow-card">
               <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-semibold mb-3 text-secondary">Music Lessons</h3>
+                <h3 className="text-xl font-semibold mb-3 text-white">Music Lessons</h3>
                 <p className="text-muted-foreground">
                   We offer low-cost music lessons and donate the proceeds to Hungry For Music to help more people gain access to instruments.
                 </p>
@@ -74,7 +74,7 @@ const Homepage = () => {
 
             <Card className="shadow-card">
               <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-semibold mb-3 text-secondary">Hungry For Music</h3>
+                <h3 className="text-xl font-semibold mb-3 text-white">Hungry For Music</h3>
                 <p className="text-muted-foreground">
                   We donate instruments to Hungry For Music through our partnership with this national organization.
                 </p>
@@ -83,7 +83,7 @@ const Homepage = () => {
 
             <Card className="shadow-card">
               <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-semibold mb-3 text-secondary">Making Change</h3>
+                <h3 className="text-xl font-semibold mb-3 text-white">Making Change</h3>
                 <p className="text-muted-foreground">
                   Our low-cost lessons make learning an instrument accessible for everyone.
                 </p>

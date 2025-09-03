@@ -11,7 +11,7 @@ const Officers = () => {
     {
       id: 6,
       name: "Karthi Senthilkumar",
-      title: "Peasant",
+      title: "Founder",
       image: "/lovable-uploads/795d730c-2350-4be8-944a-8714be57cc7a.png",
       hobbies: "My hobbies are listening to music, watching movies, and hanging out with friends",
       instruments: "I play guitar and piano",
@@ -38,7 +38,7 @@ const Officers = () => {
     {
       id: 3,
       name: "Anay Thakkar",
-      title: "Founder",
+      title: "Creative Director",
       image: "/lovable-uploads/50fd21b9-1818-48ee-bd86-8090f8ce1a67.png",
       hobbies: "My hobbies are driving, coding, and going to the gym",
       instruments: null,
@@ -98,8 +98,7 @@ const Officers = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Meet Our Officers</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Our leadership team combines decades of experience in music, education, and community development. 
-            Get to know the passionate individuals driving our mission forward.
+            These are the people making our mission possible.
           </p>
         </div>
 

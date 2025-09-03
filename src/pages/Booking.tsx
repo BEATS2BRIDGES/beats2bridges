@@ -473,7 +473,7 @@ const Booking = () => {
           {/* Booking Form */}
           <Card className="shadow-accent">
             <CardHeader>
-              <CardTitle className="text-2xl text-secondary">Lesson Details</CardTitle>
+              <CardTitle className="text-2xl text-white">Lesson Details</CardTitle>
               <CardDescription>
                 {selectedSlot ? "Fill out your lesson details below" : "Please select a time slot first to enable the booking form"}
               </CardDescription>

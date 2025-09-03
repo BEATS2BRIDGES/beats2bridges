@@ -70,7 +70,7 @@ export default function UserProfile({ user, onSignOut }: UserProfileProps) {
                 <User className="w-5 h-5 text-secondary" />
               </div>
               <div>
-                <CardTitle className="text-lg text-secondary">{user.user_metadata?.full_name || user.email}</CardTitle>
+                <CardTitle className="text-lg text-white">{user.user_metadata?.full_name || user.email}</CardTitle>
                 <CardDescription className="text-sm">{user.email}</CardDescription>
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function UserProfile({ user, onSignOut }: UserProfileProps) {
         <CardHeader>
           <div className="flex items-center justify-between">
             <div>
-              <CardTitle className="flex items-center gap-2 text-secondary">
+              <CardTitle className="flex items-center gap-2 text-white">
                 <Calendar className="w-5 h-5 text-secondary" />
                 My Bookings ({bookings.length})
               </CardTitle>

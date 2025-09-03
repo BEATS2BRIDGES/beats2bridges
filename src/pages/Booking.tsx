@@ -417,7 +417,7 @@ const Booking = () => {
           <div className="space-y-6">
             <Card className="shadow-card">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-secondary">
+                <CardTitle className="flex items-center gap-2 text-white">
                   <CalendarIcon className="text-secondary" size={24} />
                   Available Time Slots
                 </CardTitle>

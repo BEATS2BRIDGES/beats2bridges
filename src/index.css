@@ -203,4 +203,15 @@ All colors MUST be HSL.
     opacity: 1;
     transform: translateX(0);
   }
+
+  /* Calendar navigation styling */
+  .rbc-btn-group button,
+  .rbc-toolbar button,
+  .rbc-toolbar span {
+    color: hsl(var(--secondary)) !important;
+  }
+
+  .rbc-toolbar-label {
+    color: hsl(var(--secondary)) !important;
+  }
 }

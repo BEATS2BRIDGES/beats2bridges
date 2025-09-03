@@ -418,7 +418,7 @@ const Booking = () => {
             <Card className="shadow-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <CalendarIcon className="text-primary" size={24} />
+                  <CalendarIcon className="text-accent" size={24} />
                   Available Time Slots
                 </CardTitle>
                 <CardDescription>
@@ -582,7 +582,7 @@ const Booking = () => {
                 </div>
 
                 <Button type="submit" className="w-full" size="lg" disabled={!selectedSlot || submitting}>
-                  <CheckCircle className="mr-2" size={18} />
+                  <CheckCircle className="mr-2 text-accent" size={18} />
                   {submitting ? "Submitting..." : "Submit Booking Request"}
                 </Button>
 

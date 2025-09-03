@@ -26,24 +26,24 @@ All colors MUST be HSL.
     --secondary: 35 25% 80%;
     --secondary-foreground: 254 20% 10%;
 
-    /* Warm Beige Accent - Logo Color */
+    /* Beige Accent - Logo Color */
     --accent: 35 30% 75%;
     --accent-foreground: 254 20% 10%;
 
-    --muted: 45 8% 96%;
-    --muted-foreground: 45 6% 45%;
+    --muted: 35 15% 94%;
+    --muted-foreground: 35 8% 45%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 45 8% 90%;
-    --input: 45 8% 90%;
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
     --ring: 220 85% 25%;
 
     /* Navy and beige gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-card: linear-gradient(180deg, hsl(var(--card)), hsl(35 15% 96%));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(35 35% 80%));
 
     /* Shadows with music vibe */
     --shadow-card: 0 4px 20px -2px hsl(var(--primary) / 0.1);
@@ -96,8 +96,8 @@ All colors MUST be HSL.
     --muted-foreground: 215 20.2% 65.1%;
 
     /* Beige Accent for Dark Mode */
-    --accent: 35 15% 30%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 35 25% 70%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;

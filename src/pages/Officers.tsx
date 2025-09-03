@@ -96,8 +96,8 @@ const Officers = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-white font-lexend">Meet Our Officers</h1>
-          <p className="text-xl text-yellow-soft max-w-3xl mx-auto font-lexend">
+          <h1 className="text-4xl font-bold mb-4 text-primary font-lexend">Meet Our Officers</h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-lexend">
             These are the people making our mission possible.
           </p>
         </div>
@@ -114,7 +114,7 @@ const Officers = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <CardTitle className="text-xl text-white">{officer.name}</CardTitle>
+                <CardTitle className="text-xl text-primary">{officer.name}</CardTitle>
                 <CardDescription className="text-base font-medium text-accent">
                   {officer.title}
                 </CardDescription>

@@ -213,6 +213,36 @@ All colors MUST be HSL.
     font-weight: bold !important;
   }
 
+  /* Align toolbar elements horizontally */
+  .rbc-toolbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .rbc-btn-group {
+    display: flex !important;
+    gap: 8px !important;
+  }
+
+  .rbc-btn-group button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px !important;
+    padding: 6px 12px !important;
+    color: white !important;
+    font-weight: bold !important;
+  }
+
+  .rbc-btn-group button:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .rbc-btn-group button.rbc-active {
+    background: rgba(255, 255, 255, 0.3) !important;
+  }
+
   /* Current day styling */
   .rbc-today {
     background-color: hsl(220 90% 12%) !important;

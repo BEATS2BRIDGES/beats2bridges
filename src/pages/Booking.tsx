@@ -337,16 +337,16 @@ const Booking = () => {
     let textDecoration = 'none';
     
      if (event.resource === 'unavailable') {
-      backgroundColor = '#b91c1c';
+      backgroundColor = '#7f1d1d';
       color = 'white';
       opacity = '0.8';
       textDecoration = 'line-through';
-      border = '2px solid #991b1b';
+      border = '2px solid #6b1414';
     } else if (event.resource === 'selected') {
-      backgroundColor = '#047857';
+      backgroundColor = '#064e3b';
       color = 'white';
       opacity = '0.9';
-      border = '2px solid #065f46';
+      border = '2px solid #052e16';
     }
     
     const style: any = {
@@ -462,8 +462,8 @@ const Booking = () => {
                   <div className="text-xs text-white space-y-1">
                     <p>• Weekdays: 6:00 PM - 8:00 PM</p>
                     <p>• Weekends: 8:00 AM - 8:00 PM</p>
-                    <p>• <span className="inline-block w-3 h-3 bg-red-800/80 border border-red-900 rounded mr-1"></span>Unavailable times</p>
-                    <p>• <span className="inline-block w-3 h-3 bg-emerald-700 border border-emerald-800 rounded mr-1"></span>Your selection</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-red-900/90 border border-red-950 rounded mr-1"></span>Unavailable times</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-emerald-900 border border-emerald-950 rounded mr-1"></span>Your selection</p>
                   </div>
                 </div>
               </CardContent>

@@ -11,7 +11,7 @@ const Officers = () => {
     {
       id: 6,
       name: "Karthi Senthilkumar",
-      title: "Founder",
+      title: "Peasant",
       image: "/lovable-uploads/795d730c-2350-4be8-944a-8714be57cc7a.png",
       hobbies: "My hobbies are listening to music, watching movies, and hanging out with friends",
       instruments: "I play guitar and piano",
@@ -38,7 +38,7 @@ const Officers = () => {
     {
       id: 3,
       name: "Anay Thakkar",
-      title: "Creative Director",
+      title: "Founder",
       image: "/lovable-uploads/50fd21b9-1818-48ee-bd86-8090f8ce1a67.png",
       hobbies: "My hobbies are driving, coding, and going to the gym",
       instruments: null,

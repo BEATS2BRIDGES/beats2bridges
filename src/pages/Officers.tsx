@@ -96,7 +96,7 @@ const Officers = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-yellow-dark">Meet Our Officers</h1>
+          <h1 className="text-4xl font-bold mb-4 text-secondary">Meet Our Officers</h1>
           <p className="text-xl text-yellow-soft max-w-3xl mx-auto">
             These are the people making our mission possible.
           </p>
@@ -114,7 +114,7 @@ const Officers = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <CardTitle className="text-xl text-yellow-dark">{officer.name}</CardTitle>
+                <CardTitle className="text-xl text-white">{officer.name}</CardTitle>
                 <CardDescription className="text-base font-medium text-accent">
                   {officer.title}
                 </CardDescription>
@@ -152,7 +152,7 @@ const Officers = () => {
         <div className="max-w-2xl mx-auto text-center">
           <Card className="shadow-glow bg-gradient-hero text-primary-foreground">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4 text-yellow-dark">Join Our Mission</h3>
+              <h3 className="text-2xl font-bold mb-4 text-white">Join Our Mission</h3>
               <p className="text-lg mb-6 text-yellow-soft">
                 We're always looking for passionate individuals who share our vision of bringing communities 
                 together through music. Explore opportunities to make a difference with BEATS2BRIDGES.

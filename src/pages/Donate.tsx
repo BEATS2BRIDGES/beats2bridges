@@ -241,23 +241,6 @@ const Donate = () => {
           </Tabs>
         </div>
       </section>
-
-      {/* Impact Section */}
-      <section className="py-16 bg-muted/50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8 text-white">Your Impact</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div>
-              <h3 className="text-xl font-semibold mb-4 text-accent">$25</h3>
-              <p className="text-muted-foreground">Provides one music lesson for a young musician</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4 text-accent">Instrument</h3>
-              <p className="text-muted-foreground">Gives a young musician the tools to pursue their passion</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

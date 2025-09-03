@@ -209,9 +209,11 @@ All colors MUST be HSL.
   .rbc-toolbar button,
   .rbc-toolbar span {
     color: hsl(var(--secondary)) !important;
+    font-weight: bold !important;
   }
 
   .rbc-toolbar-label {
     color: hsl(var(--secondary)) !important;
+    font-weight: bold !important;
   }
 }

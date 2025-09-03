@@ -96,7 +96,7 @@ const Officers = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-secondary">Meet Our Officers</h1>
+          <h1 className="text-4xl font-bold mb-4 text-white">Meet Our Officers</h1>
           <p className="text-xl text-yellow-soft max-w-3xl mx-auto">
             These are the people making our mission possible.
           </p>

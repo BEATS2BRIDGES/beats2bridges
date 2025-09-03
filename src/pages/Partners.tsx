@@ -20,11 +20,11 @@ const Partners = () => {
               <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gradient-card shadow-card">
                 <img
                   src={partnerLogo}
-                  alt="Hungry for Music"
+                  alt="Hungry For Music"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <CardTitle className="text-2xl">Hungry for Music</CardTitle>
+              <CardTitle className="text-2xl">Hungry For Music</CardTitle>
             </CardHeader>
             
             <CardContent className="space-y-6">
@@ -38,10 +38,10 @@ const Partners = () => {
                 <div>
                   <h4 className="font-semibold text-lg mb-3">About Our Partnership</h4>
                   <p className="text-muted-foreground mb-4">
-                    Hungry for Music is a 501(c)(3) nonprofit organization dedicated to opening the world of music to children who otherwise would not have access. Their mission is simple but powerful: collect and redistribute instruments to young people with a hunger to play. Over the past 30 years, they have placed more than 22,000 instruments into the hands of aspiring musicians across all 50 states and 35 countries. From guitars and violins to trombones and xylophones, these donations have transformed the lives of thousands of children, providing the uplifting and life-changing gift of music.
+                    Hungry For Music is a 501(c)(3) nonprofit organization dedicated to opening the world of music to children who otherwise would not have access. Their mission is simple but powerful: collect and redistribute instruments to young people with a hunger to play. Over the past 30 years, they have placed more than 22,000 instruments into the hands of aspiring musicians across all 50 states and 35 countries. From guitars and violins to trombones and xylophones, these donations have transformed the lives of thousands of children, providing the uplifting and life-changing gift of music.
                   </p>
                   <p className="text-muted-foreground">
-                    At Beats2Bridges, we are proud to support Hungry for Music's mission by donating a portion of our proceeds to help them expand their reach. Through our contributions, we help put more instruments into the hands of kids who need them most—ensuring that the gift of music continues to inspire and change lives around the world.
+                    At Beats2Bridges, we are proud to support Hungry For Music's mission by donating a portion of our proceeds to help them expand their reach. Through our contributions, we help put more instruments into the hands of kids who need them most—ensuring that the gift of music continues to inspire and change lives around the world.
                   </p>
                 </div>
 

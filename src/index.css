@@ -30,6 +30,10 @@ All colors MUST be HSL.
     --accent: 35 30% 75%;
     --accent-foreground: 254 20% 10%;
 
+    /* Yellow highlight color */
+    --yellow: 45 93% 47%;
+    --yellow-foreground: 0 0% 0%;
+
     --muted: 35 15% 94%;
     --muted-foreground: 35 8% 45%;
 

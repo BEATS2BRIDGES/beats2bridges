@@ -122,23 +122,23 @@ const Officers = () => {
               
               <CardContent className="space-y-4">
                 <ul className="space-y-2 text-sm">
-                  <li className="text-white flex items-start">
-                    <span className="text-white mr-2">•</span>
+                  <li className="text-yellow flex items-start">
+                    <span className="text-yellow mr-2">•</span>
                     {officer.hobbies}
                   </li>
                   {officer.instruments && (
-                    <li className="text-white flex items-start">
-                      <span className="text-white mr-2">•</span>
+                    <li className="text-yellow flex items-start">
+                      <span className="text-yellow mr-2">•</span>
                       {officer.instruments}
                     </li>
                   )}
-                  <li className="text-white flex items-start">
-                    <span className="text-white mr-2">•</span>
+                  <li className="text-yellow flex items-start">
+                    <span className="text-yellow mr-2">•</span>
                     {officer.favoriteAlbum}
                   </li>
                   {officer.funFact && (
-                    <li className="text-white flex items-start">
-                      <span className="text-white mr-2">•</span>
+                    <li className="text-yellow flex items-start">
+                      <span className="text-yellow mr-2">•</span>
                       {officer.funFact}
                     </li>
                   )}

@@ -30,11 +30,11 @@ All colors MUST be HSL.
     --accent: 35 30% 75%;
     --accent-foreground: 254 20% 10%;
 
-    /* Yellow variants */
-    --yellow: 45 93% 47%;
+    /* Beige variants (formerly yellow) */
+    --yellow: 35 40% 60%;
     --yellow-foreground: 0 0% 0%;
-    --yellow-soft: 48 100% 67%;
-    --yellow-dark: 45 100% 35%;
+    --yellow-soft: 35 30% 75%;
+    --yellow-dark: 35 50% 45%;
 
     --muted: 35 15% 94%;
     --muted-foreground: 35 8% 45%;
@@ -105,11 +105,11 @@ All colors MUST be HSL.
     --accent: 35 25% 70%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
-    /* Yellow variants for Dark Mode */
-    --yellow: 45 93% 47%;
+    /* Beige variants for Dark Mode (formerly yellow) */
+    --yellow: 35 40% 65%;
     --yellow-foreground: 0 0% 0%;
-    --yellow-soft: 48 100% 67%;
-    --yellow-dark: 45 100% 35%;
+    --yellow-soft: 35 30% 80%;
+    --yellow-dark: 35 50% 50%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;

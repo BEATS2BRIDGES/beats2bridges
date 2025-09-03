@@ -17,10 +17,10 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 254 20% 10%;
 
-    /* Navy Blue Primary - Professional & Modern */
-    --primary: 220 85% 25%;
+    /* Dark Navy Primary - Almost Black */
+    --primary: 220 90% 12%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 220 75% 35%;
+    --primary-glow: 220 80% 18%;
 
     /* Beige Secondary - Matches Logo */
     --secondary: 35 25% 80%;
@@ -38,7 +38,7 @@ All colors MUST be HSL.
 
     --border: 35 15% 88%;
     --input: 35 15% 88%;
-    --ring: 220 85% 25%;
+    --ring: 220 90% 12%;
 
     /* Navy and beige gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
@@ -83,10 +83,10 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    /* Navy Blue Primary for Dark Mode */
-    --primary: 220 75% 35%;
+    /* Dark Navy Primary for Dark Mode */
+    --primary: 220 80% 15%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 220 65% 45%;
+    --primary-glow: 220 70% 22%;
 
     /* Beige Secondary for Dark Mode */
     --secondary: 35 20% 25%;
@@ -104,7 +104,7 @@ All colors MUST be HSL.
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 220 75% 35%;
+    --ring: 220 80% 15%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

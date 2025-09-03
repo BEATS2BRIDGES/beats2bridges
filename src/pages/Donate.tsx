@@ -79,7 +79,7 @@ const Donate = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <Heart className="w-16 h-16 mx-auto mb-6" />
+          <Heart className="w-16 h-16 mx-auto mb-6 text-accent" />
           <h1 className="text-5xl font-bold mb-6 text-white">Support Our Mission</h1>
           <p className="text-xl max-w-3xl mx-auto">
             Help us bridge communities through music by donating instruments or contributing financially 
@@ -106,7 +106,7 @@ const Donate = () => {
             <TabsContent value="money" className="mt-8">
               <Card>
                 <CardHeader className="text-center">
-                  <CardTitle className="flex items-center justify-center gap-2 text-white">
+                  <CardTitle className="flex items-center justify-center gap-2 text-accent">
                     <DollarSign className="w-6 h-6" />
                     Make a Financial Contribution
                   </CardTitle>
@@ -120,12 +120,12 @@ const Donate = () => {
                       Every dollar counts towards creating opportunities for young musicians
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button onClick={handlePayPalDonation} size="lg" className="w-full sm:w-auto">
+                      <Button onClick={handlePayPalDonation} size="lg" className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground">
                         Donate via PayPal
                       </Button>
                       <Popover>
                         <PopoverTrigger asChild>
-                          <Button size="lg" className="w-full sm:w-auto">
+                          <Button size="lg" className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground">
                             Donate via Zelle
                           </Button>
                         </PopoverTrigger>
@@ -248,11 +248,11 @@ const Donate = () => {
           <h2 className="text-3xl font-bold mb-8 text-white">Your Impact</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-white">$25</h3>
+              <h3 className="text-xl font-semibold mb-4 text-accent">$25</h3>
               <p className="text-muted-foreground">Provides one music lesson for a young musician</p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-white">Instrument</h3>
+              <h3 className="text-xl font-semibold mb-4 text-accent">Instrument</h3>
               <p className="text-muted-foreground">Gives a young musician the tools to pursue their passion</p>
             </div>
           </div>

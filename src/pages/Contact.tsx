@@ -65,7 +65,7 @@ const Contact = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-secondary font-lexend">Get In Touch</h1>
+          <h1 className="text-4xl font-bold mb-4 text-primary font-lexend">Get In Touch</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-lexend">
             Ready to bring music to your community? Let's start a conversation about how we can work together.
           </p>
@@ -75,7 +75,7 @@ const Contact = () => {
           {/* Contact Form */}
           <Card className="shadow-card">
             <CardHeader>
-              <CardTitle className="text-2xl text-secondary">Send us a Message</CardTitle>
+              <CardTitle className="text-2xl text-primary">Send us a Message</CardTitle>
               <CardDescription>
                 Fill out the form below and we'll get back to you as soon as possible.
               </CardDescription>
@@ -159,7 +159,7 @@ const Contact = () => {
           <div className="space-y-8">
             <Card className="shadow-card">
               <CardHeader>
-                <CardTitle className="text-2xl text-secondary">Contact Information</CardTitle>
+                <CardTitle className="text-2xl text-primary">Contact Information</CardTitle>
                 <CardDescription>
                   Reach out to us through any of these channels
                 </CardDescription>
@@ -168,10 +168,10 @@ const Contact = () => {
                 <div className="flex items-center space-x-4 cursor-pointer hover:bg-muted/50 p-2 rounded-lg transition-colors"
                      onClick={() => window.open('mailto:beats2bridges@gmail.com')}>
                   <div className="bg-accent/10 p-3 rounded-lg">
-                    <Mail className="text-accent" size={24} />
+                    <Mail className="text-primary" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Email Us</h3>
+                    <h3 className="font-semibold text-primary">Email Us</h3>
                     <p className="text-muted-foreground">beats2bridges@gmail.com</p>
                   </div>
                 </div>
@@ -179,10 +179,10 @@ const Contact = () => {
                 <div className="flex items-center space-x-4 cursor-pointer hover:bg-muted/50 p-2 rounded-lg transition-colors"
                      onClick={() => window.open('tel:+16692549293')}>
                   <div className="bg-secondary/10 p-3 rounded-lg">
-                    <Phone className="text-secondary" size={24} />
+                    <Phone className="text-primary" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Call Us</h3>
+                    <h3 className="font-semibold text-primary">Call Us</h3>
                     <p className="text-muted-foreground">(669) 254-9293</p>
                   </div>
                 </div>
@@ -190,10 +190,10 @@ const Contact = () => {
                 <div className="flex items-center space-x-4 cursor-pointer hover:bg-muted/50 p-2 rounded-lg transition-colors"
                      onClick={() => window.open('https://www.instagram.com/beats2bridges/', '_blank')}>
                   <div className="bg-accent/10 p-3 rounded-lg">
-                    <Instagram className="text-accent" size={24} />
+                    <Instagram className="text-primary" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Follow Us on Instagram</h3>
+                    <h3 className="font-semibold text-primary">Follow Us on Instagram</h3>
                     <p className="text-muted-foreground">@beats2bridges</p>
                   </div>
                 </div>

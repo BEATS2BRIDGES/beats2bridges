@@ -116,7 +116,7 @@ const Officers = () => {
                   />
                 </div>
                 <CardTitle className="text-xl">{officer.name}</CardTitle>
-                <CardDescription className="text-base font-medium text-primary">
+                <CardDescription className="text-base font-medium text-accent">
                   {officer.title}
                 </CardDescription>
               </CardHeader>
@@ -124,22 +124,22 @@ const Officers = () => {
               <CardContent className="space-y-4">
                 <ul className="space-y-2 text-sm">
                   <li className="text-muted-foreground flex items-start">
-                    <span className="text-primary mr-2">•</span>
+                    <span className="text-accent mr-2">•</span>
                     {officer.hobbies}
                   </li>
                   {officer.instruments && (
                     <li className="text-muted-foreground flex items-start">
-                      <span className="text-primary mr-2">•</span>
+                      <span className="text-accent mr-2">•</span>
                       {officer.instruments}
                     </li>
                   )}
                   <li className="text-muted-foreground flex items-start">
-                    <span className="text-primary mr-2">•</span>
+                    <span className="text-accent mr-2">•</span>
                     {officer.favoriteAlbum}
                   </li>
                   {officer.funFact && (
                     <li className="text-muted-foreground flex items-start">
-                      <span className="text-primary mr-2">•</span>
+                      <span className="text-accent mr-2">•</span>
                       {officer.funFact}
                     </li>
                   )}

@@ -33,7 +33,7 @@ const Homepage = () => {
               BEATS2BRIDGES
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90">
-              A student-run 501(c)(3) organization dedicated to providing music to all
+              Connecting communities through the power of music, one beat at a time
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="secondary" asChild>
@@ -41,7 +41,7 @@ const Homepage = () => {
                   Book With Us <ChevronRight className="ml-2" size={20} />
                 </Link>
               </Button>
-              <Button variant="secondary" size="lg" asChild>
+              <Button variant="default" size="lg" asChild>
                 <Link to="/donate">
                   Donate
                 </Link>

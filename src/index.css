@@ -213,6 +213,14 @@ All colors MUST be HSL.
     font-weight: bold !important;
   }
 
+  /* Specific styling for all navigation elements */
+  .rbc-toolbar .rbc-btn-group button,
+  .rbc-toolbar .rbc-toolbar-label,
+  .rbc-btn-group button span {
+    color: white !important;
+    font-weight: bold !important;
+  }
+
   /* Align toolbar elements horizontally */
   .rbc-toolbar {
     display: flex !important;

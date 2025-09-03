@@ -22,8 +22,8 @@ All colors MUST be HSL.
     --primary-foreground: 0 0% 98%;
     --primary-glow: 220 80% 18%;
 
-    /* Beige Secondary - Matches Logo Exactly */
-    --secondary: 35 40% 78%;
+    /* Beige Secondary - Lighter Match */
+    --secondary: 35 35% 85%;
     --secondary-foreground: 0 0% 0%;
 
     /* Beige Accent - Logo Color */
@@ -88,8 +88,8 @@ All colors MUST be HSL.
     --primary-foreground: 0 0% 98%;
     --primary-glow: 220 70% 22%;
 
-    /* Beige Secondary for Dark Mode - Logo Match */
-    --secondary: 35 35% 65%;
+    /* Beige Secondary for Dark Mode - Lighter */
+    --secondary: 35 30% 75%;
     --secondary-foreground: 0 0% 0%;
 
     --muted: 217.2 32.6% 17.5%;

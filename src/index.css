@@ -142,7 +142,7 @@ All colors MUST be HSL.
 
   h1, h2, h3, h4, h5, h6 {
     color: hsl(var(--yellow-dark));
-    font-family: 'DM Serif Text', serif;
+    font-family: 'Lexend Deca', sans-serif;
   }
 
   /* Subheadings and descriptive text */

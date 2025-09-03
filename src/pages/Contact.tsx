@@ -65,7 +65,7 @@ const Contact = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-secondary font-dm-serif">Get In Touch</h1>
+          <h1 className="text-4xl font-bold mb-4 text-secondary font-lexend">Get In Touch</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-lexend">
             Ready to bring music to your community? Let's start a conversation about how we can work together.
           </p>
@@ -202,7 +202,7 @@ const Contact = () => {
 
             <Card className="shadow-card bg-gray-900 text-white border-gray-800">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-3 text-white font-dm-serif">Ready to Get Started?</h3>
+                <h3 className="text-xl font-semibold mb-3 text-white font-lexend">Ready to Get Started?</h3>
                 <p className="mb-4 text-gray-200 font-lexend">
                   Join our community of music lovers and make a difference through the power of sound.
                 </p>

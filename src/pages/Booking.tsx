@@ -402,7 +402,7 @@ const Booking = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-4 text-white font-dm-serif">Book Your Lesson</h1>
+          <h1 className="text-4xl font-bold mb-4 text-white font-lexend">Book Your Lesson</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-lexend">
             Welcome back! Select a time slot below to book your personalized music lesson.
           </p>

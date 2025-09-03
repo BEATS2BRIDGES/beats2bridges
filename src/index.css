@@ -219,11 +219,19 @@ All colors MUST be HSL.
     justify-content: space-between !important;
     align-items: center !important;
     flex-wrap: nowrap !important;
+    gap: 16px !important;
   }
 
-  .rbc-btn-group {
+  .rbc-toolbar .rbc-btn-group {
     display: flex !important;
     gap: 8px !important;
+    margin: 0 !important;
+  }
+
+  .rbc-toolbar .rbc-toolbar-label {
+    flex: 1 !important;
+    text-align: center !important;
+    margin: 0 16px !important;
   }
 
   .rbc-btn-group button {

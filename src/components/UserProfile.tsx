@@ -90,7 +90,7 @@ export default function UserProfile({ user, onSignOut }: UserProfileProps) {
                 <Calendar className="w-5 h-5 text-secondary" />
                 My Bookings ({bookings.length})
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="ml-7">
                 View and manage your lesson appointments
               </CardDescription>
             </div>

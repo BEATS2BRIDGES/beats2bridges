@@ -36,12 +36,12 @@ const Homepage = () => {
               Connecting communities through the power of music, one beat at a time
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="default" asChild>
+              <Button variant="secondary" asChild>
                 <Link to="/booking">
                   Book With Us <ChevronRight className="ml-2" size={20} />
                 </Link>
               </Button>
-              <Button variant="default" size="lg" asChild>
+              <Button variant="secondary" size="lg" asChild>
                 <Link to="/donate">
                   Donate
                 </Link>

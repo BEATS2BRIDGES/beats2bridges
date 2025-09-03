@@ -337,16 +337,16 @@ const Booking = () => {
     let textDecoration = 'none';
     
      if (event.resource === 'unavailable') {
-      backgroundColor = '#7f1d1d';
-      color = 'white';
-      opacity = '0.8';
-      textDecoration = 'line-through';
-      border = '2px solid #6b1414';
-    } else if (event.resource === 'selected') {
-      backgroundColor = '#064e3b';
+      backgroundColor = '#dc2626'; // Brighter red
       color = 'white';
       opacity = '0.9';
-      border = '2px solid #052e16';
+      textDecoration = 'line-through';
+      border = '2px solid #b91c1c';
+    } else if (event.resource === 'selected') {
+      backgroundColor = '#16a34a'; // Brighter green
+      color = 'white';
+      opacity = '0.9';
+      border = '2px solid #15803d';
     }
     
     const style: any = {
@@ -418,7 +418,7 @@ const Booking = () => {
             <Card className="shadow-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-primary">
-                  <CalendarIcon className="text-secondary" size={24} />
+                  <CalendarIcon className="text-primary" size={24} />
                   Available Time Slots
                 </CardTitle>
                 <CardDescription>
@@ -457,13 +457,13 @@ const Booking = () => {
                   </div>
                 )}
                 
-                <div className="mt-4 p-3 bg-amber-100/30 rounded-lg">
+                <div className="mt-4 p-3 bg-amber-100/30 rounded-lg border border-accent">
                   <h4 className="font-semibold text-sm mb-2 text-primary">Availability:</h4>
                   <div className="text-xs text-white space-y-1">
                     <p>• Weekdays: 6:00 PM - 8:00 PM</p>
                     <p>• Weekends: 8:00 AM - 8:00 PM</p>
-                    <p>• <span className="inline-block w-3 h-3 bg-red-900/90 border border-red-950 rounded mr-1"></span>Unavailable times</p>
-                    <p>• <span className="inline-block w-3 h-3 bg-emerald-900 border border-emerald-950 rounded mr-1"></span>Your selection</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-red-600 border border-red-500 rounded mr-1"></span>Unavailable times</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-green-600 border border-green-500 rounded mr-1"></span>Your selection</p>
                   </div>
                 </div>
               </CardContent>

@@ -9,7 +9,7 @@ const Partners = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-secondary">Our Partners</h1>
+          <h1 className="text-4xl font-bold mb-4 text-white">Our Partners</h1>
         </div>
 
         {/* Partner */}
@@ -24,7 +24,7 @@ const Partners = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <CardTitle className="text-2xl text-secondary">Hungry For Music</CardTitle>
+              <CardTitle className="text-2xl text-white">Hungry For Music</CardTitle>
             </CardHeader>
             
             <CardContent className="space-y-6">
@@ -36,7 +36,7 @@ const Partners = () => {
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="font-semibold text-lg mb-3 text-secondary">About Our Partnership</h4>
+                  <h4 className="font-semibold text-lg mb-3 text-white">About Our Partnership</h4>
                   <p className="text-muted-foreground mb-4">
                     Hungry For Music is a 501(c)(3) nonprofit organization dedicated to opening the world of music to children who otherwise would not have access. Their mission is simple but powerful: collect and redistribute instruments to young people with a hunger to play. Over the past 30 years, they have placed more than 22,000 instruments into the hands of aspiring musicians across all 50 states and 35 countries. From guitars and violins to trombones and xylophones, these donations have transformed the lives of thousands of children, providing the uplifting and life-changing gift of music.
                   </p>
@@ -47,7 +47,7 @@ const Partners = () => {
 
                 <div className="space-y-4">
                   <div className="bg-muted/50 p-4 rounded-lg">
-                    <h5 className="font-semibold mb-2 text-secondary">Partnership Highlights</h5>
+                    <h5 className="font-semibold mb-2 text-white">Partnership Highlights</h5>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Coming soon</li>
                     </ul>
@@ -76,7 +76,7 @@ const Partners = () => {
         <div className="max-w-4xl mx-auto text-center">
           <Card className="shadow-glow bg-gradient-hero text-primary-foreground">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4 text-secondary">Become a Partner</h3>
+              <h3 className="text-2xl font-bold mb-4 text-white">Become a Partner</h3>
               <p className="text-lg mb-6 text-primary-foreground/90">
                 Join our network of partners and help us expand the reach of music education and community building. 
                 Together, we can create lasting change through the power of music.

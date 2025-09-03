@@ -80,8 +80,8 @@ const Donate = () => {
       <section className="py-20 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <Heart className="w-16 h-16 mx-auto mb-6 text-accent" />
-          <h1 className="text-5xl font-bold mb-6 text-white">Support Our Mission</h1>
-          <p className="text-xl max-w-3xl mx-auto">
+          <h1 className="text-5xl font-bold mb-6 text-white font-dm-serif">Support Our Mission</h1>
+          <p className="text-xl max-w-3xl mx-auto font-lexend">
             Help us bridge communities through music by donating instruments or contributing financially 
             to support young musicians from underprivileged communities.
           </p>

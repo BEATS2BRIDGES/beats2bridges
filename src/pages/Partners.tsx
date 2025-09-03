@@ -9,7 +9,7 @@ const Partners = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-white">Our Partners</h1>
+          <h1 className="text-4xl font-bold mb-4 text-white font-dm-serif">Our Partners</h1>
         </div>
 
         {/* Partner */}
@@ -76,8 +76,8 @@ const Partners = () => {
         <div className="max-w-4xl mx-auto text-center">
           <Card className="shadow-glow bg-gradient-hero text-primary-foreground">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4 text-white">Become a Partner</h3>
-              <p className="text-lg mb-6 text-primary-foreground/90">
+              <h3 className="text-2xl font-bold mb-4 text-white font-dm-serif">Become a Partner</h3>
+              <p className="text-lg mb-6 text-primary-foreground/90 font-lexend">
                 Join our network of partners and help us expand the reach of music education and community building. 
                 Together, we can create lasting change through the power of music.
               </p>

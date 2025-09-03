@@ -20,7 +20,9 @@ export default {
 		extend: {
 			fontFamily: {
 				'system': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'system-ui', 'sans-serif'],
-				'sans': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'system-ui', 'sans-serif']
+				'sans': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'system-ui', 'sans-serif'],
+				'dm-serif': ['DM Serif Text', 'serif'],
+				'lexend': ['Lexend Deca', 'sans-serif']
 			},
 			colors: {
 				border: 'hsl(var(--border))',

@@ -52,21 +52,21 @@ const Partners = () => {
                       <li>• Coming soon</li>
                     </ul>
                   </div>
-
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Button variant="default" className="flex-1" asChild>
-                      <a href="https://hungryformusic.org/" target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2" size={16} />
-                        Visit Website
-                      </a>
-                    </Button>
-                    <Button variant="outline" className="flex-1" asChild>
-                      <a href="https://hungryformusic.org/events/" target="_blank" rel="noopener noreferrer">
-                        View Projects
-                      </a>
-                    </Button>
-                  </div>
                 </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                <Button variant="default" className="flex-1" asChild>
+                  <a href="https://hungryformusic.org/" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="mr-2" size={16} />
+                    Visit Website
+                  </a>
+                </Button>
+                <Button variant="outline" className="flex-1" asChild>
+                  <a href="https://hungryformusic.org/events/" target="_blank" rel="noopener noreferrer">
+                    View Projects
+                  </a>
+                </Button>
               </div>
             </CardContent>
           </Card>

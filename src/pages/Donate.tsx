@@ -148,8 +148,8 @@ const Donate = () => {
             <TabsContent value="instruments" className="mt-8">
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-white">
-                    <Music className="w-6 h-6" />
+                  <CardTitle className="flex items-center gap-2 text-primary">
+                    <Music className="w-6 h-6 text-primary" />
                     Donate Musical Instruments
                   </CardTitle>
                   <CardDescription>

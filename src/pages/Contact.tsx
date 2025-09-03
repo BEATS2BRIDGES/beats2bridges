@@ -147,7 +147,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" disabled={isSubmitting} className="w-full" size="lg">
+                <Button type="submit" disabled={isSubmitting} className="w-full" size="lg" variant="secondary">
                   <Send className="mr-2" size={18} />
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
@@ -165,15 +165,17 @@ const Contact = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="flex items-center space-x-4 cursor-pointer hover:bg-muted/50 p-2 rounded-lg transition-colors"
-                     onClick={() => window.open('mailto:beats2bridges@gmail.com')}>
+                <div className="flex items-center space-x-4">
                   <div className="bg-primary/10 p-3 rounded-lg">
                     <Mail className="text-primary" size={24} />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="font-semibold">Email Us</h3>
                     <p className="text-muted-foreground">beats2bridges@gmail.com</p>
                   </div>
+                  <Button variant="secondary" size="sm" onClick={() => window.open('mailto:beats2bridges@gmail.com')}>
+                    Email Us
+                  </Button>
                 </div>
 
                 <div className="flex items-center space-x-4 cursor-pointer hover:bg-muted/50 p-2 rounded-lg transition-colors"
@@ -200,13 +202,13 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-card bg-gradient-accent text-accent-foreground">
+            <Card className="shadow-card bg-gray-900 text-white border-gray-800">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-3">Ready to Get Started?</h3>
-                <p className="mb-4">
+                <h3 className="text-xl font-semibold mb-3 text-white">Ready to Get Started?</h3>
+                <p className="mb-4 text-gray-200">
                   Join our community of music lovers and make a difference through the power of sound.
                 </p>
-                <Button variant="secondary" className="w-full" asChild>
+                <Button variant="default" className="w-full" asChild>
                   <a href="/">
                     Learn More About Our Programs
                   </a>

@@ -17,17 +17,17 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 254 20% 10%;
 
-    /* Gold/Amber Primary - Music & Luxury Vibe */
-    --primary: 45 93% 47%;
+    /* Navy Blue Primary - Professional & Modern */
+    --primary: 220 85% 25%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 45 95% 58%;
+    --primary-glow: 220 75% 35%;
 
-    /* Vibrant Blue Secondary */
-    --secondary: 213 94% 68%;
+    /* Beige Secondary - Matches Logo */
+    --secondary: 35 25% 80%;
     --secondary-foreground: 254 20% 10%;
 
-    /* Warm Orange Accent */
-    --accent: 25 95% 53%;
+    /* Warm Beige Accent - Logo Color */
+    --accent: 35 30% 75%;
     --accent-foreground: 254 20% 10%;
 
     --muted: 45 8% 96%;
@@ -38,11 +38,11 @@ All colors MUST be HSL.
 
     --border: 45 8% 90%;
     --input: 45 8% 90%;
-    --ring: 45 93% 47%;
+    --ring: 220 85% 25%;
 
-    /* Gold-themed gradients */
+    /* Navy and beige gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-card: linear-gradient(180deg, hsl(var(--card)), hsl(45 8% 98%));
+    --gradient-card: linear-gradient(180deg, hsl(var(--card)), hsl(35 15% 96%));
     --gradient-accent: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
 
     /* Shadows with music vibe */
@@ -83,18 +83,20 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    /* Gold Primary for Dark Mode */
-    --primary: 45 93% 60%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --primary-glow: 45 95% 70%;
+    /* Navy Blue Primary for Dark Mode */
+    --primary: 220 75% 35%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 220 65% 45%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    /* Beige Secondary for Dark Mode */
+    --secondary: 35 20% 25%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
+    /* Beige Accent for Dark Mode */
+    --accent: 35 15% 30%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -102,7 +104,7 @@ All colors MUST be HSL.
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 45 93% 60%;
+    --ring: 220 75% 35%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

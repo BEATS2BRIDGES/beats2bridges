@@ -24,7 +24,7 @@ const Partners = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <CardTitle className="text-2xl">Hungry For Music</CardTitle>
+              <CardTitle className="text-2xl text-yellow-dark">Hungry For Music</CardTitle>
             </CardHeader>
             
             <CardContent className="space-y-6">

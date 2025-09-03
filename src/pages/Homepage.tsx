@@ -41,7 +41,7 @@ const Homepage = () => {
                   Book With Us <ChevronRight className="ml-2" size={20} />
                 </Link>
               </Button>
-              <Button variant="secondary" size="lg" asChild>
+              <Button variant="secondary" asChild>
                 <Link to="/donate">
                   Donate
                 </Link>

@@ -79,9 +79,9 @@ const Donate = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <Heart className="w-16 h-16 mx-auto mb-6 text-accent" />
-          <h1 className="text-5xl font-bold mb-6 text-white font-lexend">Support Our Mission</h1>
-          <p className="text-xl max-w-3xl mx-auto font-lexend">
+          <Heart className="w-16 h-16 mx-auto mb-6 text-primary-foreground" />
+          <h1 className="text-5xl font-bold mb-6 text-accent font-lexend">Support Our Mission</h1>
+          <p className="text-xl max-w-3xl mx-auto text-primary-foreground font-lexend">
             Help us bridge communities through music by donating instruments or contributing financially 
             to support young musicians from underprivileged communities.
           </p>
@@ -106,7 +106,7 @@ const Donate = () => {
             <TabsContent value="money" className="mt-8">
               <Card>
                 <CardHeader className="text-center">
-                  <CardTitle className="flex items-center justify-center gap-2 text-accent">
+                  <CardTitle className="flex items-center justify-center gap-2 text-primary">
                     <DollarSign className="w-6 h-6" />
                     Make a Financial Contribution
                   </CardTitle>
@@ -116,9 +116,6 @@ const Donate = () => {
                 </CardHeader>
                 <CardContent className="text-center">
                   <div className="space-y-4">
-                    <p className="text-muted-foreground">
-                      Every dollar counts towards creating opportunities for young musicians
-                    </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Button onClick={handlePayPalDonation} size="lg" className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground">
                         Donate via PayPal

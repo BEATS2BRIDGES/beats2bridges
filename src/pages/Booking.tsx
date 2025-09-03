@@ -447,11 +447,11 @@ const Booking = () => {
                   />
                 </div>
                 {selectedSlot && (
-                  <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
-                    <p className="font-semibold text-white">
+                  <div className="bg-primary/10 p-4 rounded-lg border border-accent">
+                    <p className="font-semibold text-primary">
                       Selected: {moment(selectedSlot.start).format('MMMM Do, YYYY [at] h:mm A')} - {moment(selectedSlot.end).format('h:mm A')}
                     </p>
-                    <p className="text-sm text-white mt-1">
+                    <p className="text-sm text-primary mt-1">
                       Duration: 1 hour
                     </p>
                   </div>

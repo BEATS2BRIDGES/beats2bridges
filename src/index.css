@@ -207,13 +207,19 @@ All colors MUST be HSL.
   /* Calendar navigation styling */
   .rbc-btn-group button,
   .rbc-toolbar button,
-  .rbc-toolbar span {
-    color: hsl(var(--secondary)) !important;
+  .rbc-toolbar span,
+  .rbc-toolbar-label {
+    color: hsl(35 30% 75%) !important;
     font-weight: bold !important;
   }
 
-  .rbc-toolbar-label {
-    color: hsl(var(--secondary)) !important;
-    font-weight: bold !important;
+  /* Current day styling */
+  .rbc-today {
+    background-color: hsl(220 90% 12%) !important;
+  }
+
+  .rbc-date-cell.rbc-now {
+    background-color: hsl(220 90% 12%) !important;
+    color: white !important;
   }
 }

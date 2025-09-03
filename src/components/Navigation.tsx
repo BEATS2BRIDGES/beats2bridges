@@ -47,17 +47,17 @@ const Navigation = () => {
                 </Link>
               );
             })}
-            {/* Donate tab - outline style */}
+            {/* Donate tab - beige background with blue text */}
             <Link
               to={donateItem.path}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-lg border-2 transition-smooth ml-4 ${
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-smooth ml-4 ${
                 location.pathname === donateItem.path
-                  ? "border-primary-foreground bg-primary-foreground/20 text-primary-foreground font-semibold"
-                  : "border-primary-foreground/60 text-primary-foreground/80 hover:border-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                  ? "bg-secondary text-primary font-semibold"
+                  : "bg-secondary hover:bg-secondary/90 text-primary"
               }`}
             >
-              <Heart size={18} />
-              <span className="hidden sm:inline">{donateItem.label}</span>
+              <Heart size={18} className="text-primary" />
+              <span className="hidden sm:inline text-primary">{donateItem.label}</span>
             </Link>
           </div>
         </div>

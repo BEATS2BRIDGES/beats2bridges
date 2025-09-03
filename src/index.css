@@ -136,12 +136,12 @@ All colors MUST be HSL.
 
   body {
     background: hsl(var(--background));
-    color: hsl(var(--yellow-soft));
+    color: hsl(var(--foreground));
     font-family: var(--font-sans);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: hsl(var(--yellow-dark));
+    color: hsl(var(--foreground));
     font-family: 'Lexend Deca', sans-serif;
   }
 
@@ -151,7 +151,7 @@ All colors MUST be HSL.
   }
 
   p {
-    color: hsl(var(--yellow-soft));
+    color: hsl(var(--muted-foreground));
   }
 
   /* Smooth scrolling */

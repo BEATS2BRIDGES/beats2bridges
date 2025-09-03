@@ -402,7 +402,7 @@ const Booking = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-4 text-white font-lexend">Book Your Lesson</h1>
+          <h1 className="text-4xl font-bold mb-4 text-primary font-lexend">Book Your Lesson</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-lexend">
             Welcome back! Select a time slot below to book your personalized music lesson.
           </p>
@@ -417,7 +417,7 @@ const Booking = () => {
           <div className="space-y-6">
             <Card className="shadow-card">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-white">
+                <CardTitle className="flex items-center gap-2 text-primary">
                   <CalendarIcon className="text-secondary" size={24} />
                   Available Time Slots
                 </CardTitle>
@@ -458,7 +458,7 @@ const Booking = () => {
                 )}
                 
                 <div className="mt-4 p-3 bg-amber-100/30 rounded-lg">
-                  <h4 className="font-semibold text-sm mb-2 text-white">Availability:</h4>
+                  <h4 className="font-semibold text-sm mb-2 text-primary">Availability:</h4>
                   <div className="text-xs text-white space-y-1">
                     <p>• Weekdays: 6:00 PM - 8:00 PM</p>
                     <p>• Weekends: 8:00 AM - 8:00 PM</p>
@@ -473,7 +473,7 @@ const Booking = () => {
           {/* Booking Form */}
           <Card className="shadow-accent">
             <CardHeader>
-              <CardTitle className="text-2xl text-white">Lesson Details</CardTitle>
+              <CardTitle className="text-2xl text-primary">Lesson Details</CardTitle>
               <CardDescription>
                 {selectedSlot ? "Fill out your lesson details below" : "Please select a time slot first to enable the booking form"}
               </CardDescription>
@@ -581,8 +581,8 @@ const Booking = () => {
                   )}
                 </div>
 
-                <Button type="submit" className="w-full" size="lg" disabled={!selectedSlot || submitting}>
-                  <CheckCircle className="mr-2 text-accent" size={18} />
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90" size="lg" disabled={!selectedSlot || submitting}>
+                  <CheckCircle className="mr-2 text-primary-foreground" size={18} />
                   {submitting ? "Submitting..." : "Submit Booking Request"}
                 </Button>
 

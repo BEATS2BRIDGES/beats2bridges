@@ -112,8 +112,8 @@ const Homepage = () => {
                         className="w-full h-96 object-cover rounded-lg shadow-accent"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg"></div>
-                      <div className="absolute bottom-6 left-6 text-white">
-                        <p className="text-xl font-semibold">{image.caption}</p>
+                      <div className="absolute bottom-6 left-6">
+                        <p className="text-xl font-semibold text-white">{image.caption}</p>
                       </div>
                     </div>
                   </CarouselItem>

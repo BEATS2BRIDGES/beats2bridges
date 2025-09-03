@@ -65,7 +65,7 @@ const Contact = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Get In Touch</h1>
+          <h1 className="text-4xl font-bold mb-4 text-secondary">Get In Touch</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to bring music to your community? Let's start a conversation about how we can work together.
           </p>
@@ -75,7 +75,7 @@ const Contact = () => {
           {/* Contact Form */}
           <Card className="shadow-card">
             <CardHeader>
-              <CardTitle className="text-2xl">Send us a Message</CardTitle>
+              <CardTitle className="text-2xl text-secondary">Send us a Message</CardTitle>
               <CardDescription>
                 Fill out the form below and we'll get back to you as soon as possible.
               </CardDescription>
@@ -159,7 +159,7 @@ const Contact = () => {
           <div className="space-y-8">
             <Card className="shadow-card">
               <CardHeader>
-                <CardTitle className="text-2xl">Contact Information</CardTitle>
+                <CardTitle className="text-2xl text-secondary">Contact Information</CardTitle>
                 <CardDescription>
                   Reach out to us through any of these channels
                 </CardDescription>
@@ -171,7 +171,7 @@ const Contact = () => {
                     <Mail className="text-accent" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Email Us</h3>
+                    <h3 className="font-semibold text-secondary">Email Us</h3>
                     <p className="text-muted-foreground">beats2bridges@gmail.com</p>
                   </div>
                 </div>
@@ -182,7 +182,7 @@ const Contact = () => {
                     <Phone className="text-secondary" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Call Us</h3>
+                    <h3 className="font-semibold text-secondary">Call Us</h3>
                     <p className="text-muted-foreground">(669) 254-9293</p>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ const Contact = () => {
                     <Instagram className="text-accent" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Follow Us on Instagram</h3>
+                    <h3 className="font-semibold text-secondary">Follow Us on Instagram</h3>
                     <p className="text-muted-foreground">@beats2bridges</p>
                   </div>
                 </div>

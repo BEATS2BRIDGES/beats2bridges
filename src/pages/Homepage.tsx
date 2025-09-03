@@ -29,7 +29,7 @@ const Homepage = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-glow-pulse">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-glow-pulse text-yellow-dark">
               BEATS2BRIDGES
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90">
@@ -55,11 +55,11 @@ const Homepage = () => {
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
+            <h2 className="text-4xl font-bold mb-6 text-yellow-dark">Our Mission</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Beats2Bridges helps young musicians from underprivileged communities by giving them access to music lessons, mentorship, and chances to perform. We work with <a href="https://hungryformusic.org/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hungry for Music</a>, a well-known national organization that supports music access and education. Together, we connect talent with opportunity, helping young artists grow in creativity, confidence, and impact.
             </p>
-            <h2 className="text-4xl font-bold">The BEATS2BRIDGES Process</h2>
+            <h2 className="text-4xl font-bold text-yellow-dark">The BEATS2BRIDGES Process</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -97,7 +97,7 @@ const Homepage = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-6">Gallery</h2>
+            <h2 className="text-4xl font-bold mb-6 text-yellow-dark">Gallery</h2>
           </div>
 
           <div className="max-w-4xl mx-auto">

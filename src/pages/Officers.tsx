@@ -20,7 +20,7 @@ const Officers = () => {
     {
       id: 7,
       name: "Aarush Dhiman",
-      title: "Cofounder",
+      title: "Co-Founder",
       image: "/lovable-uploads/b9648911-8d9e-4f40-b781-a8c76052fae6.png",
       hobbies: "Sports (watching/playing basketball), music, spending time with family/friends",
       instruments: "I play guitar",

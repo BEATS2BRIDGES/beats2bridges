@@ -343,10 +343,10 @@ const Booking = () => {
       textDecoration = 'line-through';
       border = '2px solid #dc2626';
     } else if (event.resource === 'selected') {
-      backgroundColor = 'hsl(var(--primary))';
-      color = 'hsl(var(--primary-foreground))';
+      backgroundColor = '#10b981';
+      color = 'white';
       opacity = '0.9';
-      border = '2px solid hsl(var(--primary-glow))';
+      border = '2px solid #059669';
     }
     
     const style: any = {
@@ -457,13 +457,13 @@ const Booking = () => {
                   </div>
                 )}
                 
-                <div className="mt-4 p-3 bg-muted/50 rounded-lg">
-                  <h4 className="font-semibold text-sm mb-2">Availability:</h4>
-                  <div className="text-xs text-muted-foreground space-y-1">
+                <div className="mt-4 p-3 bg-amber-100/30 rounded-lg">
+                  <h4 className="font-semibold text-sm mb-2 text-white">Availability:</h4>
+                  <div className="text-xs text-white space-y-1">
                     <p>• Weekdays: 6:00 PM - 8:00 PM</p>
                     <p>• Weekends: 8:00 AM - 8:00 PM</p>
                     <p>• <span className="inline-block w-3 h-3 bg-red-500/60 border border-red-600 rounded mr-1"></span>Unavailable times</p>
-                    <p>• <span className="inline-block w-3 h-3 bg-primary border border-primary-glow rounded mr-1"></span>Your selection</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-green-500 border border-green-600 rounded mr-1"></span>Your selection</p>
                   </div>
                 </div>
               </CardContent>

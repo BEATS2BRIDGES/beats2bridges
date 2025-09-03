@@ -171,7 +171,7 @@ const Contact = () => {
                     <Mail className="text-accent" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary">Email Us</h3>
+                    <h3 className="font-semibold text-white">Email Us</h3>
                     <p className="text-muted-foreground">beats2bridges@gmail.com</p>
                   </div>
                 </div>
@@ -182,7 +182,7 @@ const Contact = () => {
                     <Phone className="text-secondary" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary">Call Us</h3>
+                    <h3 className="font-semibold text-white">Call Us</h3>
                     <p className="text-muted-foreground">(669) 254-9293</p>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ const Contact = () => {
                     <Instagram className="text-accent" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary">Follow Us on Instagram</h3>
+                    <h3 className="font-semibold text-white">Follow Us on Instagram</h3>
                     <p className="text-muted-foreground">@beats2bridges</p>
                   </div>
                 </div>

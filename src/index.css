@@ -30,9 +30,11 @@ All colors MUST be HSL.
     --accent: 35 30% 75%;
     --accent-foreground: 254 20% 10%;
 
-    /* Yellow highlight color */
+    /* Yellow variants */
     --yellow: 45 93% 47%;
     --yellow-foreground: 0 0% 0%;
+    --yellow-soft: 48 100% 67%;
+    --yellow-dark: 45 100% 35%;
 
     --muted: 35 15% 94%;
     --muted-foreground: 35 8% 45%;
@@ -103,6 +105,12 @@ All colors MUST be HSL.
     --accent: 35 25% 70%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
+    /* Yellow variants for Dark Mode */
+    --yellow: 45 93% 47%;
+    --yellow-foreground: 0 0% 0%;
+    --yellow-soft: 48 100% 67%;
+    --yellow-dark: 45 100% 35%;
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
@@ -127,7 +135,17 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-system;
+    background: hsl(var(--background));
+    color: hsl(var(--yellow-soft));
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: hsl(var(--yellow-dark));
+  }
+
+  p {
+    color: hsl(var(--yellow-soft));
   }
 
   /* Smooth scrolling */

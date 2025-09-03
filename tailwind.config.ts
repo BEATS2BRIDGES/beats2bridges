@@ -51,7 +51,9 @@ export default {
 				},
 				yellow: {
 					DEFAULT: 'hsl(var(--yellow))',
-					foreground: 'hsl(var(--yellow-foreground))'
+					foreground: 'hsl(var(--yellow-foreground))',
+					soft: 'hsl(var(--yellow-soft))',
+					dark: 'hsl(var(--yellow-dark))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',

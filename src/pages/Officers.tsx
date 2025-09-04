@@ -120,7 +120,11 @@ const Officers = () => {
                    <img
                      src={officer.image}
                      alt={officer.name}
-                     className="w-full h-full object-cover object-center"
+                     className={`w-full h-full object-cover ${
+                       officer.name === 'Karthi Senthilkumar' 
+                         ? 'object-center scale-125 -translate-y-2' 
+                         : 'object-center'
+                     }`}
                    />
                  </div>
                 <CardTitle className="text-xl text-primary">{officer.name}</CardTitle>

@@ -61,7 +61,7 @@ const Officers = () => {
       image: "/lovable-uploads/aa8f1b5e-a963-413b-a283-4f03bee662ec.png",
       hobbies: "My hobby is running",
       instruments: null,
-      favoriteAlbum: "My favorite album is HEROES & VILLANS by Metro Boomin"
+      favoriteAlbum: "My favorite album is HEROES & VILLAINS by Metro Boomin"
     },
     {
       id: 1,
@@ -120,11 +120,7 @@ const Officers = () => {
                    <img
                      src={officer.image}
                      alt={officer.name}
-                     className={`w-full h-full object-cover ${
-                       officer.name === 'Karthi Senthilkumar' 
-                         ? 'object-top scale-150' 
-                         : 'object-center'
-                     }`}
+                     className="w-full h-full object-cover object-center"
                    />
                  </div>
                 <CardTitle className="text-xl text-primary">{officer.name}</CardTitle>

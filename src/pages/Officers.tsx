@@ -12,7 +12,7 @@ const Officers = () => {
       id: 6,
       name: "Karthi Senthilkumar",
       title: "Founder",
-      image: "/lovable-uploads/795d730c-2350-4be8-944a-8714be57cc7a.png",
+      image: "/lovable-uploads/4f7e639f-a6c0-4502-b382-00fa61eb2980.png",
       hobbies: "My hobbies are listening to music, watching movies, and hanging out with friends",
       instruments: "I play guitar and piano",
       favoriteAlbum: "My favorite albums are Nothing Was The Same - Drake and Late Registration - Kanye"

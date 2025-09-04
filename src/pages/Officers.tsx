@@ -12,7 +12,7 @@ const Officers = () => {
       id: 6,
       name: "Karthi Senthilkumar",
       title: "Founder",
-      image: "/lovable-uploads/4f7e639f-a6c0-4502-b382-00fa61eb2980.png",
+      image: "/lovable-uploads/c591b96e-bc61-47cc-8cbe-c1eeba5e0591.png",
       hobbies: "My hobbies are listening to music, watching movies, and hanging out with friends",
       instruments: "I play guitar and piano",
       favoriteAlbum: "My favorite albums are Nothing Was The Same - Drake and Late Registration - Kanye"
@@ -89,6 +89,15 @@ const Officers = () => {
       hobbies: "My hobbies are mridangam, basketball, math, and running",
       instruments: "I play mridangam",
       favoriteAlbum: "My favorite song is WUNNA by Gunna"
+    },
+    {
+      id: 10,
+      name: "Ayush Saripalli",
+      title: "Outreach",
+      image: "/lovable-uploads/4f7e639f-a6c0-4502-b382-00fa61eb2980.png",
+      hobbies: "I love to play basketball and video games",
+      instruments: null,
+      favoriteAlbum: "My favorite album is Black On Both Sides by Mos Def"
     }
   ];
 
@@ -111,7 +120,7 @@ const Officers = () => {
                   <img
                     src={officer.image}
                     alt={officer.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
                 <CardTitle className="text-xl text-primary">{officer.name}</CardTitle>

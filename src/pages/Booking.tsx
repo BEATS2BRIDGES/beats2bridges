@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
+import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 import moment from "moment";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,12 +12,27 @@ import { Calendar as CalendarIcon, Clock, Users, Music, CheckCircle } from "luci
 import { supabase } from "@/lib/supabase";
 import Auth from "@/components/Auth";
 import UserProfile from "@/components/UserProfile";
+import { useIsMobile } from "@/hooks/use-mobile";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
 
+// Custom 3-day view for mobile
+const ThreeDayView = ({ date, localizer }: any) => {
+  return Views.WEEK;
+};
+
+// Custom views object
+const customViews = {
+  month: true,
+  week: true, 
+  day: true,
+  threeDay: ThreeDayView,
+};
+
 const Booking = () => {
   const { toast } = useToast();
+  const isMobile = useIsMobile();
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [selectedSlot, setSelectedSlot] = useState<{ start: Date; end: Date } | null>(null);
@@ -435,8 +450,8 @@ const Booking = () => {
                     onSelectEvent={handleSelectEvent}
                     onSelectSlot={handleSelectSlot}
                     selectable
-                    views={['month', 'week', 'day']}
-                    defaultView="week"
+                    views={isMobile ? ['month', 'day'] : ['month', 'week', 'day']}
+                    defaultView={isMobile ? "day" : "week"}
                     step={60}
                     timeslots={1}
                     min={new Date(0, 0, 0, 6, 0, 0)}
@@ -444,6 +459,9 @@ const Booking = () => {
                     showMultiDayTimes
                     className="bg-background rounded-lg"
                     eventPropGetter={eventStyleGetter}
+                    messages={{
+                      day: isMobile ? '3-Day' : 'Day'
+                    }}
                   />
                 </div>
                 {selectedSlot && (

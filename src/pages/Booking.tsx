@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Calendar as CalendarIcon, Clock, Users, Music, CheckCircle } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, Users, Music, CheckCircle, X } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import Auth from "@/components/Auth";
 import UserProfile from "@/components/UserProfile";
@@ -17,9 +17,21 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
 
-// Custom 3-day view for mobile
-const ThreeDayView = ({ date, localizer }: any) => {
-  return Views.WEEK;
+// Custom 3-day view for mobile - shows a proper 3-day week view
+const ThreeDayView = (props: any) => {
+  return (
+    <div className="rbc-calendar">
+      <Calendar
+        {...props}
+        view="work_week"
+        toolbar={false}
+        formats={{
+          dayHeaderFormat: (date: Date) => moment(date).format('ddd M/D'),
+          timeGutterFormat: (date: Date) => moment(date).format('h A'),
+        }}
+      />
+    </div>
+  );
 };
 
 // Custom views object
@@ -45,22 +57,82 @@ const Booking = () => {
   });
   const [fieldErrors, setFieldErrors] = useState<{[key: string]: boolean}>({});
   const [submitting, setSubmitting] = useState(false);
+  const [userBookings, setUserBookings] = useState<any[]>([]);
 
+  // Fetch user bookings when user is available
   useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
+    const fetchUserBookings = async () => {
+      if (!user) return;
+      
+      const { data, error } = await supabase
+        .from('bookings')
+        .select('*')
+        .eq('user_id', user.id)
+        .neq('status', 'cancelled');
+      
+      if (error) {
+        console.error('Error fetching bookings:', error);
+        return;
+      }
+      
+      setUserBookings(data || []);
+    };
+    
+    fetchUserBookings();
+  }, [user]);
 
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
+  const handleCancelBooking = async (bookingId: string) => {
+    try {
+      const { error } = await supabase
+        .from('bookings')
+        .update({ status: 'cancelled' })
+        .eq('id', bookingId);
+      
+      if (error) throw error;
+      
+      // Remove cancelled booking from state
+      setUserBookings(prev => prev.filter(booking => booking.id !== bookingId));
+      
+      toast({
+        title: "Booking Cancelled",
+        description: "Your booking has been cancelled successfully.",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Cancel Failed",
+        description: error.message || "Failed to cancel booking.",
+        variant: "destructive"
+      });
+    }
+  };
 
-    return () => subscription.unsubscribe();
-  }, []);
+  // Convert user bookings to calendar events
+  const userBookingEvents = userBookings.map(booking => {
+    const bookingDateTime = new Date(`${booking.booking_date}T${booking.booking_time}`);
+    const endTime = new Date(bookingDateTime);
+    endTime.setHours(endTime.getHours() + 1);
+    
+    return {
+      id: `user-booking-${booking.id}`,
+      title: (
+        <div className="flex items-center justify-between w-full">
+          <span>{booking.lesson_type} Lesson</span>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleCancelBooking(booking.id);
+            }}
+            className="ml-2 text-red-500 hover:text-red-700 bg-white/20 rounded-full p-1"
+          >
+            <X size={12} />
+          </button>
+        </div>
+      ),
+      start: bookingDateTime,
+      end: endTime,
+      resource: 'user-booking'
+    };
+  });
 
   // Sample existing events
   const existingEvents = [
@@ -82,14 +154,14 @@ const Booking = () => {
 
   // Add selected slot as a temporary event if one exists
   const events = selectedSlot 
-    ? [...existingEvents, {
+    ? [...existingEvents, ...userBookingEvents, {
         id: 'selected',
         title: 'Selected Time Slot',
         start: selectedSlot.start,
         end: selectedSlot.end,
         resource: 'selected'
       }]
-    : existingEvents;
+    : [...existingEvents, ...userBookingEvents];
 
   // Check if a time slot is available
   const isTimeAvailable = (date: Date): boolean => {
@@ -248,8 +320,8 @@ const Booking = () => {
     const end = new Date(start);
     end.setHours(start.getHours() + 1);
     
-    // Check if slot conflicts with existing bookings
-    const hasConflict = existingEvents.some(event => {
+    // Check if slot conflicts with existing bookings and user bookings
+    const hasConflict = [...existingEvents, ...userBookingEvents].some(event => {
       return (start < event.end && end > event.start);
     });
     
@@ -362,6 +434,11 @@ const Booking = () => {
       color = 'white';
       opacity = '0.9';
       border = '2px solid #15803d';
+    } else if (event.resource === 'user-booking') {
+      backgroundColor = '#1d4ed8'; // Blue for user bookings
+      color = 'white';
+      opacity = '0.95';
+      border = '2px solid #1e40af';
     }
     
     const style: any = {
@@ -450,7 +527,7 @@ const Booking = () => {
                     onSelectEvent={handleSelectEvent}
                     onSelectSlot={handleSelectSlot}
                     selectable
-                    views={isMobile ? ['month', 'day'] : ['month', 'week', 'day']}
+                    views={isMobile ? ['month', 'day', 'threeDay'] : ['month', 'week', 'day']}
                     defaultView={isMobile ? "day" : "week"}
                     step={60}
                     timeslots={1}

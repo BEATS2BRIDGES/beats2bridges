@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Calendar as CalendarIcon, Clock, Users, Music, CheckCircle, X } from "lucide-react";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/integrations/supabase/client";
 import Auth from "@/components/Auth";
 import UserProfile from "@/components/UserProfile";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -58,6 +58,24 @@ const Booking = () => {
   const [fieldErrors, setFieldErrors] = useState<{[key: string]: boolean}>({});
   const [submitting, setSubmitting] = useState(false);
   const [userBookings, setUserBookings] = useState<any[]>([]);
+
+  // Authentication check
+  useEffect(() => {
+    const getSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
+      setLoading(false);
+    };
+
+    getSession();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setLoading(false);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   // Fetch user bookings when user is available
   useEffect(() => {

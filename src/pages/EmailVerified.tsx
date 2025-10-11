@@ -19,9 +19,9 @@ export default function EmailVerified() {
               <CheckCircle className="w-8 h-8 text-green-600" />
             </div>
           </div>
-          <CardTitle className="text-2xl text-green-700">Email Verified!</CardTitle>
+          <CardTitle className="text-2xl text-green-700">Email Confirmed!</CardTitle>
           <CardDescription>
-            Thanks for verifying your email address. Your account is now active and ready to use.
+            Thanks for confirming your email. Your account is now active and ready to use.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

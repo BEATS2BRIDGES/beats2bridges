@@ -555,7 +555,10 @@ const Booking = () => {
                     className="bg-background rounded-lg"
                     eventPropGetter={eventStyleGetter}
                     messages={{
-                      day: isMobile ? '3-Day' : 'Day'
+                      day: isMobile ? '3-Day' : 'Day',
+                      previous: '<',
+                      next: '>',
+                      today: 'Today'
                     }}
                   />
                 </div>

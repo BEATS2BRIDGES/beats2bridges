@@ -103,7 +103,7 @@ const Booking = () => {
     try {
       const { error } = await supabase
         .from('bookings')
-        .update({ status: 'cancelled' })
+        .delete()
         .eq('id', bookingId);
       
       if (error) throw error;

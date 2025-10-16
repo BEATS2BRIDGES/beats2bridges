@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { useToast } from '@/hooks/use-toast'
-import { User, Calendar, Clock, LogOut, ChevronDown, ChevronUp } from 'lucide-react'
+import { User, Calendar, Clock, LogOut, ChevronDown, ChevronUp, X } from 'lucide-react'
 import moment from 'moment'
 import type { Database } from '@/lib/supabase'
 
@@ -49,6 +49,31 @@ export default function UserProfile({ user, onSignOut }: UserProfileProps) {
   const handleSignOut = async () => {
     await supabase.auth.signOut()
     onSignOut()
+  }
+
+  const handleCancelBooking = async (bookingId: string) => {
+    try {
+      const { error } = await supabase
+        .from('bookings')
+        .delete()
+        .eq('id', bookingId)
+
+      if (error) throw error
+
+      // Remove cancelled booking from state
+      setBookings(prev => prev.filter(booking => booking.id !== bookingId))
+
+      toast({
+        title: "Booking Cancelled",
+        description: "Your booking has been cancelled successfully.",
+      })
+    } catch (error: any) {
+      toast({
+        title: "Cancel Failed",
+        description: error.message || "Failed to cancel booking.",
+        variant: "destructive"
+      })
+    }
   }
 
   const getStatusColor = (status: string) => {
@@ -124,12 +149,25 @@ export default function UserProfile({ user, onSignOut }: UserProfileProps) {
                       <div className="flex items-center gap-2">
                         <h4 className="font-semibold capitalize">{booking.lesson_type}</h4>
                         <Badge className={getStatusColor(booking.status)}>
-                          {booking.status}
+                          {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
                         </Badge>
                       </div>
-                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                        <Clock className="w-4 h-4" />
-                        {moment(booking.booking_date + ' ' + booking.booking_time).format('MMM Do, YYYY [at] h:mm A')}
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                          <Clock className="w-4 h-4" />
+                          {moment(booking.booking_date + ' ' + booking.booking_time).format('MMM Do, YYYY [at] h:mm A')}
+                        </div>
+                        {booking.status === 'pending' && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleCancelBooking(booking.id)}
+                            className="h-8 text-red-600 hover:text-red-700 hover:bg-red-50"
+                          >
+                            <X className="w-4 h-4 mr-1" />
+                            Cancel
+                          </Button>
+                        )}
                       </div>
                     </div>
                     {booking.notes && (

@@ -85,8 +85,7 @@ const Booking = () => {
       const { data, error } = await supabase
         .from('bookings')
         .select('*')
-        .eq('user_id', user.id)
-        .neq('status', 'cancelled');
+        .eq('user_id', user.id);
       
       if (error) {
         console.error('Error fetching bookings:', error);
@@ -97,7 +96,46 @@ const Booking = () => {
     };
     
     fetchUserBookings();
-  }, [user]);
+
+    // Set up real-time subscription for booking updates
+    const channel = supabase
+      .channel('booking-changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'bookings',
+          filter: `user_id=eq.${user?.id}`
+        },
+        (payload) => {
+          console.log('Booking change detected:', payload);
+          fetchUserBookings();
+          
+          // Show toast notification for status changes
+          if (payload.eventType === 'UPDATE' && payload.new.status !== payload.old?.status) {
+            const newStatus = payload.new.status;
+            if (newStatus === 'confirmed') {
+              toast({
+                title: "Booking Confirmed! 🎉",
+                description: "Your lesson has been approved and confirmed.",
+              });
+            } else if (newStatus === 'cancelled') {
+              toast({
+                title: "Booking Update",
+                description: "Your booking request was not approved.",
+                variant: "destructive"
+              });
+            }
+          }
+        }
+      )
+      .subscribe();
+    
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [user, toast]);
 
   const handleCancelBooking = async (bookingId: string) => {
     try {
@@ -125,32 +163,43 @@ const Booking = () => {
   };
 
   // Convert user bookings to calendar events
-  const userBookingEvents = userBookings.map(booking => {
-    const bookingDateTime = new Date(`${booking.booking_date}T${booking.booking_time}`);
-    const endTime = new Date(bookingDateTime);
-    endTime.setHours(endTime.getHours() + 1);
-    
-    return {
-      id: `user-booking-${booking.id}`,
-      title: (
-        <div className="flex items-center justify-between w-full">
-          <span>{booking.lesson_type} Lesson</span>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              handleCancelBooking(booking.id);
-            }}
-            className="ml-2 text-red-500 hover:text-red-700 bg-white/20 rounded-full p-1"
-          >
-            <X size={12} />
-          </button>
-        </div>
-      ),
-      start: bookingDateTime,
-      end: endTime,
-      resource: 'user-booking'
-    };
-  });
+  const userBookingEvents = userBookings
+    .filter(booking => booking.status !== 'cancelled')
+    .map(booking => {
+      const bookingDateTime = new Date(`${booking.booking_date}T${booking.booking_time}`);
+      const endTime = new Date(bookingDateTime);
+      endTime.setHours(endTime.getHours() + 1);
+      
+      const isConfirmed = booking.status === 'confirmed';
+      const isPending = booking.status === 'pending';
+      
+      return {
+        id: `user-booking-${booking.id}`,
+        title: (
+          <div className="flex items-center justify-between w-full">
+            <span>
+              {booking.lesson_type} Lesson 
+              {isConfirmed && ' ✓'}
+              {isPending && ' (Pending)'}
+            </span>
+            {isPending && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCancelBooking(booking.id);
+                }}
+                className="ml-2 text-red-500 hover:text-red-700 bg-white/20 rounded-full p-1"
+              >
+                <X size={12} />
+              </button>
+            )}
+          </div>
+        ),
+        start: bookingDateTime,
+        end: endTime,
+        resource: isConfirmed ? 'user-booking-confirmed' : 'user-booking-pending'
+      };
+    });
 
   // Sample existing events
   const existingEvents = [
@@ -452,11 +501,16 @@ const Booking = () => {
       color = 'white';
       opacity = '0.9';
       border = '2px solid #15803d';
-    } else if (event.resource === 'user-booking') {
-      backgroundColor = '#1d4ed8'; // Blue for user bookings
+    } else if (event.resource === 'user-booking-confirmed') {
+      backgroundColor = '#16a34a'; // Green for confirmed bookings
       color = 'white';
       opacity = '0.95';
-      border = '2px solid #1e40af';
+      border = '2px solid #15803d';
+    } else if (event.resource === 'user-booking-pending') {
+      backgroundColor = '#eab308'; // Yellow for pending bookings
+      color = 'white';
+      opacity = '0.95';
+      border = '2px solid #ca8a04';
     }
     
     const style: any = {
@@ -574,12 +628,13 @@ const Booking = () => {
                 )}
                 
                 <div className="mt-4 p-3 bg-amber-100/30 rounded-lg border border-accent">
-                  <h4 className="font-semibold text-sm mb-2 text-primary">Availability:</h4>
+                  <h4 className="font-semibold text-sm mb-2 text-primary">Legend:</h4>
                   <div className="text-xs text-white space-y-1">
                     <p>• Weekdays: 6:00 PM - 8:00 PM</p>
                     <p>• Weekends: 8:00 AM - 8:00 PM</p>
-                    <p>• <span className="inline-block w-3 h-3 bg-red-600 border border-red-500 rounded mr-1"></span>Unavailable times</p>
-                    <p>• <span className="inline-block w-3 h-3 bg-green-600 border border-green-500 rounded mr-1"></span>Your selection</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-red-600 border border-red-500 rounded mr-1"></span>Unavailable</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-green-600 border border-green-500 rounded mr-1"></span>Confirmed / Selected</p>
+                    <p>• <span className="inline-block w-3 h-3 bg-yellow-500 border border-yellow-600 rounded mr-1"></span>Pending approval</p>
                   </div>
                 </div>
               </CardContent>

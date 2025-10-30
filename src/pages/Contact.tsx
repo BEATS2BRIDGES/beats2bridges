@@ -188,13 +188,13 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-center space-x-4 cursor-pointer hover:bg-muted/50 p-2 rounded-lg transition-colors"
-                     onClick={() => window.open('https://www.instagram.com/_beats2bridges?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank')}>
+                     onClick={() => window.open('https://www.instagram.com/beats.2.bridges_/', '_blank')}>
                   <div className="bg-accent/10 p-3 rounded-lg">
                     <Instagram className="text-primary" size={24} />
                   </div>
                   <div>
                     <h3 className="font-semibold text-primary">Follow Us on Instagram</h3>
-                    <p className="text-muted-foreground">@_beats2bridges</p>
+                    <p className="text-muted-foreground">@beats.2.bridges_</p>
                   </div>
                 </div>
               </CardContent>

@@ -27,15 +27,6 @@ const Officers = () => {
       favoriteAlbum: "My favorite album is Rodeo - Travis Scott"
     },
     {
-      id: 2,
-      name: "Valerie Bui",
-      title: "Secretary",
-      image: "/lovable-uploads/67361dbc-c097-406d-b936-fb4c75bd8d60.png",
-      hobbies: "My hobbies are baking, cheer and kung fu",
-      instruments: "I play piano",
-      favoriteAlbum: "My favorite song is Give You the World - Steve Lacy"
-    },
-    {
       id: 3,
       name: "Anay Thakkar",
       title: "Creative Director",
@@ -62,15 +53,6 @@ const Officers = () => {
       hobbies: "My hobby is running",
       instruments: null,
       favoriteAlbum: "My favorite album is HEROES & VILLAINS by Metro Boomin"
-    },
-    {
-      id: 1,
-      name: "Anya Joseph",
-      title: "Outreach",
-      image: "/lovable-uploads/375e5b83-6d60-4922-b90c-7ecdd33bdbe6.png",
-      hobbies: "I love to write and dance",
-      instruments: "I play violin and saxophone",
-      favoriteAlbum: "My favourite album is Californication by RHCP"
     },
     {
       id: 5,
